@@ -41,39 +41,39 @@ class JenisSampahController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request): RedirectResponse
-    {
-        // Validasi request jika diperlukan
-        $request->validate([
-            'kategori_id' => 'required|integer',
-            'nama' => 'required|string',
-            'satuan' => 'required|string',
-            'harga_beli' => 'required|numeric',
-            'harga_jual' => 'required|numeric',
-            'deskripsi' => 'required|string',
-        ]);
-    
-        // Cek apakah kategori dengan ID yang diberikan ada
-        $kategori = KategoriSampah::find($request->input('kategori_id'));
-    
-        if (!$kategori) {
-            return response()->json(['message' => 'Kategori tidak ditemukan'], 404);
-        }
-    
-        // Simpan data ke JenisSampahInduk
-        $jenisSampah = JenisSampahInduk::create([
-            'kategori_id' => $kategori->id,
-            'nama' => $request->nama,
-            'satuan' => $request->satuan,
-            'harga_beli' => $request->harga_beli,
-            'harga_jual' => $request->harga_jual,
-            'stok' => 0,
-            'deskripsi' => $request->deskripsi,
-        ]);
-    
-        return $this->redirectRoute(jenisSampah: $jenisSampah);
+public function store(Request $request): RedirectResponse
+{
+    // Validasi request jika diperlukan
+    $request->validate([
+        'kategori_id' => 'required|integer',
+        'nama' => 'required|string',
+        'satuan' => 'required|string',
+        'harga_beli' => 'required|numeric',
+        'harga_jual' => 'required|numeric',
+        'deskripsi' => 'required|string',
+    ]);
+
+    // Cek apakah kategori dengan ID yang diberikan ada
+    $kategori = KategoriSampah::find($request->input('kategori_id'));
+
+    if (!$kategori) {
+        return response()->json(['message' => 'Kategori tidak ditemukan'], 404);
     }
-    
+
+    // Simpan data ke JenisSampahInduk
+    $jenisSampah = JenisSampahInduk::create([
+        'kategori_id' => $kategori->id,
+        'nama' => $request->nama,
+        'satuan' => $request->satuan,
+        'harga_beli' => $request->harga_beli,
+        'harga_jual' => $request->harga_jual,
+        'stok' => 0,
+        'deskripsi' => $request->deskripsi,
+    ]);
+
+    return $this->redirectRoute(jenisSampah: $jenisSampah);
+}
+
 
     /**
      * Display the specified resource.
