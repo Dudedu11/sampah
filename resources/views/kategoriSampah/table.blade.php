@@ -9,7 +9,7 @@
     <tbody>
         @foreach ($kategoriSampahs as $kategoriSampah)
         <tr>
-            <td>1</td>
+            <td></td>
             <td>{{ $kategoriSampah->nama }}</td>
             <td style="text-align:center;">
 

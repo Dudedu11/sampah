@@ -94,7 +94,10 @@ public function store(Request $request): RedirectResponse
      */
     public function edit($id)
     {
-        //
+        $jenisSampah = JenisSampahInduk::find($id);
+        $kategoriSampahs = KategoriSampah::all(); // Sesuaikan dengan model dan data yang benar
+    
+        return view('jenisSampah.edit', compact('jenisSampah', 'kategoriSampahs'));
     }
 
     /**
@@ -106,8 +109,19 @@ public function store(Request $request): RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $jenisSampah = JenisSampahInduk::find($id);
+    
+        $jenisSampah->update([
+            'nama' => $request->input('nama'),
+            'satuan' => $request->input('satuan'),
+            'harga_beli' => $request->input('harga_beli'),
+            'harga_jual' => $request->input('harga_jual'),
+            'deskripsi' => $request->input('deskripsi'),
+        ]);
+    
+        return redirect()->route('jenisSampah.index')->with('success', 'Data berhasil diperbarui.');
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -117,7 +131,15 @@ public function store(Request $request): RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        $jenisSampah = JenisSampahInduk::find($id);
+    
+        if (!$jenisSampah) {
+            return redirect()->route('jenisSampah.destroy')->with('error', 'Data tidak ditemukan.');
+        }
+    
+        $jenisSampah->delete();
+    
+        return redirect()->route('jenisSampah.index')->with('success', 'Data berhasil dihapus.');
     }
 
 
@@ -131,7 +153,7 @@ public function store(Request $request): RedirectResponse
      * @return RedirectResponse
      */
     private function redirectRoute(
-        JenisSampah $jenisSampah,
+        JenisSampahInduk $jenisSampah, // Update the type hint to JenisSampahInduk
         string $route = 'jenisSampah.index',
         string $successMsg = 'Berhasil',
         string $errorMsg = 'Terjadi Kesalahan'
@@ -151,4 +173,4 @@ public function store(Request $request): RedirectResponse
                 ]);
         }
     }
-}
+}    

@@ -11,18 +11,19 @@
         @foreach ($jenisSampahs as $index => $jenisSampah)
             <tr>
                 <td>{{ $index + 1 }}</td>
-                <td>{{ $jenisSampah->kategori_id }}</td>
+                <td>{{ $jenisSampah->kategori->nama }}</td> <!-- Mengakses properti nama dari objek kategori -->
                 <td>{{ $jenisSampah->nama }}</td>
-                <!-- <td style="text-align:center;">{{ $jenisSampah->satuan }}</td>
-                <td style="text-align:center;">{{ $jenisSampah->harga_beli }}</td>
-                <td style="text-align:center;">{{ $jenisSampah->harga_jual }}</td>
-                <td style="text-align:center;">{{ $jenisSampah->stok }}</td>
-                <td style="text-align:center;">{{ $jenisSampah->deskripsi }}</td> -->
                 <td style="text-align:center;">
-                    <button class="btn btn-info">Edit</button>
-                    <button class="btn btn-danger">Hapus</button>
+                    <a href="{{ route('jenisSampah.edit', ['jenisSampah' => $jenisSampah->id]) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('jenisSampah.destroy', ['jenisSampah' => $jenisSampah->id]) }}" class="btn btn-danger"
+                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $jenisSampah->id }}').submit();">Hapus</a>
+                    <form id="delete-form-{{ $jenisSampah->id }}" action="{{ route('jenisSampah.destroy', ['jenisSampah' => $jenisSampah->id]) }}" method="POST" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                 </td>
             </tr>
         @endforeach
     </tbody>
 </table>
+

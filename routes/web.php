@@ -30,6 +30,10 @@ Route::resource('signUpUnit', SignUpUnitController::class);
 Route::get('kategoriSampah/{kategoriSampah}/edit', 'KategoriSampahController@edit')->name('kategoriSampah.edit');
 Route::delete('kategoriSampah/{kategoriSampah}', [KategoriSampahController::class, 'destroy'])->name('kategoriSampah.destroy');
 
+Route::get('/jenis-sampah/{jenisSampah}/edit', [JenisSampahController::class, 'edit'])->name('jenisSampah.edit');
+Route::delete('/jenis-sampah/{jenisSampah}', [JenisSampahController::class, 'destroy'])->name('jenisSampah.destroy');
+
+
 Route::middleware('auth')->group(function () {
 Route::resource('dashboard', DashboardController::class);
 Route::resource('nasabah', NasabahController::class);
