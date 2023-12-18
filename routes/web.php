@@ -26,6 +26,9 @@ Route::post('loginAction', [AuthController::class, 'loginAction'])->name('loginA
 Route::resource('signUpInduk', SignUpIndukController::class);
 Route::resource('signUpUnit', SignUpUnitController::class);
 
+// edit&delete KategoriSampah
+Route::get('kategoriSampah/{kategoriSampah}/edit', 'KategoriSampahController@edit')->name('kategoriSampah.edit');
+Route::delete('kategoriSampah/{kategoriSampah}', [KategoriSampahController::class, 'destroy'])->name('kategoriSampah.destroy');
 
 Route::middleware('auth')->group(function () {
 Route::resource('dashboard', DashboardController::class);
