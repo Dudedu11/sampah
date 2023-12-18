@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JenisSampah;
+use App\Models\JenisSampahInduk;
 use App\Models\KategoriSampah;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -16,8 +16,8 @@ class JenisSampahController extends Controller
      */
     public function index()
     {
-        $jenisSampah = JenisSampah::all();
-        return view('jenisSampah.index',[
+        $jenisSampah = JenisSampahInduk::all(); // Fix: Use JenisSampahInduk model
+        return view('jenisSampah.index', [
             'jenisSampahs' => $jenisSampah
         ]);
     }
@@ -30,7 +30,7 @@ class JenisSampahController extends Controller
     public function create()
     {
         $kategoriSampah = KategoriSampah::all();
-        return view('jenisSampah.create',[
+        return view('jenisSampah.create', [
             'kategoriSampahs' => $kategoriSampah
         ]);
     }
@@ -43,8 +43,8 @@ class JenisSampahController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-         // Validasi request jika diperlukan
-         $request->validate([
+        // Validasi request jika diperlukan
+        $request->validate([
             'kategori_id' => 'required|integer',
             'nama' => 'required|string',
             'satuan' => 'required|string',
@@ -52,16 +52,16 @@ class JenisSampahController extends Controller
             'harga_jual' => 'required|numeric',
             'deskripsi' => 'required|string',
         ]);
-
+    
         // Cek apakah kategori dengan ID yang diberikan ada
         $kategori = KategoriSampah::find($request->input('kategori_id'));
-
+    
         if (!$kategori) {
             return response()->json(['message' => 'Kategori tidak ditemukan'], 404);
         }
-
-        // Simpan data ke JenisSampah
-        $jenisSampah = JenisSampah::create([
+    
+        // Simpan data ke JenisSampahInduk
+        $jenisSampah = JenisSampahInduk::create([
             'kategori_id' => $kategori->id,
             'nama' => $request->nama,
             'satuan' => $request->satuan,
@@ -70,9 +70,10 @@ class JenisSampahController extends Controller
             'stok' => 0,
             'deskripsi' => $request->deskripsi,
         ]);
-
+    
         return $this->redirectRoute(jenisSampah: $jenisSampah);
     }
+    
 
     /**
      * Display the specified resource.
@@ -120,7 +121,7 @@ class JenisSampahController extends Controller
     }
 
 
-      /**
+    /**
      * Redirect route based on condition.
      *
      * @param  mixed $jenisSampah
@@ -131,9 +132,9 @@ class JenisSampahController extends Controller
      */
     private function redirectRoute(
         JenisSampah $jenisSampah,
-        String $route = 'jenisSampah.index',
-        String $successMsg = 'Berhasil',
-        String $errorMsg = 'Terjadi Kesalahan'
+        string $route = 'jenisSampah.index',
+        string $successMsg = 'Berhasil',
+        string $errorMsg = 'Terjadi Kesalahan'
     ): RedirectResponse {
         if ($jenisSampah) {
             return redirect()

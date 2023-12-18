@@ -35,4 +35,6 @@ Route::resource('dashboard', DashboardController::class);
 Route::resource('nasabah', NasabahController::class);
 Route::resource('kategoriSampah', KategoriSampahController::class);
 Route::resource('jenisSampah', JenisSampahController::class);
-});
+Route::get('jenisSampahInduk', [JenisSampahController::class, 'index'])->name('jenisSampahInduk.index');
+
+}); 
