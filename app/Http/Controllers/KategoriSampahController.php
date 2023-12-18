@@ -69,8 +69,10 @@ class KategoriSampahController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kategoriSampah = KategoriSampah::findOrFail($id);
+        return view('kategoriSampah.edit', compact('kategoriSampah'));
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -81,8 +83,15 @@ class KategoriSampahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kategoriSampah = KategoriSampah::findOrFail($id);
+        
+        // Validasi formulir jika diperlukan
+    
+        $kategoriSampah->update($request->all());
+    
+        return redirect()->route('kategoriSampah.index')->with('success', 'Kategori Sampah berhasil diperbarui');
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -92,7 +101,10 @@ class KategoriSampahController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kategoriSampah = KategoriSampah::findOrFail($id);
+        $kategoriSampah->delete();
+    
+        return redirect()->route('kategoriSampah.index')->with('success', 'Kategori Sampah berhasil dihapus');
     }
 
 

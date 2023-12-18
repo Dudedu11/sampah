@@ -18,11 +18,12 @@
                                 <!-- Left content goes here -->
                             </div>
                             <div class="col-md-6 text-end">
-                                <a class="btn btn-primary" href="{{ route('kategoriSampah.create') }}">Tambah Kategori Sampah</a>
+                                <a class="btn btn-primary" href="{{ route('kategoriSampah.create') }}">Tambah Kategori
+                                    Sampah</a>
                             </div>
                         </div>
                     </div>
-</br>
+                    </br>
                     <div class="table-responsive">
                         @include('kategoriSampah.table')
                     </div>

@@ -31,10 +31,11 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-sign-in.html">
+                <a class="sidebar-link" href="{{ route('jenisSampah.index') }}">
                     <i class="align-middle" data-feather="trash-2"></i> <span class="align-middle">Jenis Sampah</span>
                 </a>
             </li>
+
             @endif
             <!--
             <li class="sidebar-item">
