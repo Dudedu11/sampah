@@ -33,12 +33,8 @@
                             <input type="text" class="form-control" id="satuan" name="satuan" placeholder="Masukkan Satuan" required>
                         </div>
                         <div class="mb-3">
-                            <label for="harga_beli" class="form-label">Harga Beli</label>
-                            <input type="number" class="form-control" id="harga_beli" name="harga_beli" placeholder="Masukkan Harga Beli" value="0" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="harga_jual" class="form-label">Harga Jual</label>
-                            <input type="number" class="form-control" id="harga_jual" name="harga_jual" placeholder="Masukkan Harga Jual" value="0" readonly>
+                            <label for="harga" class="form-label">Harga</label>
+                            <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan Harga " value="0" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>

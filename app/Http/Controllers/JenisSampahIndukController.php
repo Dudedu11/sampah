@@ -7,7 +7,7 @@ use App\Models\KategoriSampah;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class JenisSampahController extends Controller
+class JenisSampahIndukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,39 +41,48 @@ class JenisSampahController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-public function store(Request $request): RedirectResponse
-{
-    // Validasi request jika diperlukan
-    $request->validate([
-        'kategori_id' => 'required|integer',
-        'nama' => 'required|string',
-        'satuan' => 'required|string',
-        'harga_beli' => 'required|numeric',
-        'harga_jual' => 'required|numeric',
-        'deskripsi' => 'required|string',
-    ]);
 
-    // Cek apakah kategori dengan ID yang diberikan ada
-    $kategori = KategoriSampah::find($request->input('kategori_id'));
-
-    if (!$kategori) {
-        return response()->json(['message' => 'Kategori tidak ditemukan'], 404);
-    }
-
-    // Simpan data ke JenisSampahInduk
-    $jenisSampah = JenisSampahInduk::create([
-        'kategori_id' => $kategori->id,
-        'nama' => $request->nama,
-        'satuan' => $request->satuan,
-        'harga_beli' => $request->harga_beli,
-        'harga_jual' => $request->harga_jual,
-        'stok' => 0,
-        'deskripsi' => $request->deskripsi,
-    ]);
-
-    return $this->redirectRoute(jenisSampah: $jenisSampah);
-}
-
+    
+     public function store(Request $request): RedirectResponse
+     {
+         $request->validate([
+             'kategori_id' => 'required|integer',
+             'nama' => 'required|string',
+             'satuan' => 'required|string',
+             'harga_beli' => 'required|numeric',
+             'deskripsi' => 'required|string',
+         ]);
+     
+         $kategori = KategoriSampah::find($request->input('kategori_id'));
+     
+         if (!$kategori) {
+             return response()->json(['message' => 'Kategori tidak ditemukan'], 404);
+         }
+     
+         $jenisSampahInduk = JenisSampahInduk::create([
+             'kategori_id' => $kategori->id,
+             'nama' => $request->nama,
+             'satuan' => $request->satuan,
+             'harga' => $request->harga_beli,
+             'deskripsi' => $request->deskripsi,
+         ]);
+     
+         $induks = Induk::where('user_id', session('user_id'))->get();
+     
+         foreach ($induks as $induk) {
+             JenisSampahUnit::create([
+                 'unit_id' => $induk->id,
+                 'nama' => $induk->nama,
+                 'satuan' => $induk->satuan,
+                 'harga_jual' => $request->harga_jual,
+                 'harga_beli' => $request->harga_beli,
+                 'stok' => $request->stok,
+                 'deskripsi' => $request->deskripsi,
+             ]);
+         }
+     
+         return $this->redirectRoute(jenisSampah: $jenisSampahInduk);
+     }
 
     /**
      * Display the specified resource.

@@ -20,39 +20,39 @@
                             <label for="kategori_id">Kategori Sampah:</label>
                             <select class="form-control" id="kategori_id" name="kategori_id">
                                 @foreach($kategoriSampahs as $kategoriSampah)
-                                    <option value="{{ $kategoriSampah->id }}" {{ $jenisSampah->kategori_id == $kategoriSampah->id ? 'selected' : '' }}>
-                                        {{ $kategoriSampah->nama }}
-                                    </option>
+                                <option value="{{ $kategoriSampah->id }}" {{ $jenisSampah->kategori_id ==
+                                    $kategoriSampah->id ? 'selected' : '' }}>
+                                    {{ $kategoriSampah->nama }}
+                                </option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="nama">Nama Jenis Sampah:</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $jenisSampah->nama }}">
+                            <input type="text" class="form-control" id="nama" name="nama"
+                                value="{{ $jenisSampah->nama }}">
                         </div>
 
                         <div class="form-group">
                             <label for="satuan">Satuan:</label>
-                            <input type="text" class="form-control" id="satuan" name="satuan" value="{{ $jenisSampah->satuan }}">
+                            <input type="text" class="form-control" id="satuan" name="satuan"
+                                value="{{ $jenisSampah->satuan }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="harga_beli">Harga:</label>
+                            <input type="text" class="form-control" id="harga" name="harga"
+                                value="{{ isset($jenisSampah->harga) ? $jenisSampah->harga : 0 }}">
                         </div>
 
-                        <div class="form-group">
-                            <label for="harga_beli">Harga Beli:</label>
-                            <input type="text" class="form-control" id="harga_beli" name="harga_beli" value="{{ $jenisSampah->harga_beli }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="harga_jual">Harga Jual:</label>
-                            <input type="text" class="form-control" id="harga_jual" name="harga_jual" value="{{ $jenisSampah->harga_jual }}">
-                        </div>
 
                         <div class="form-group">
                             <label for="deskripsi">Deskripsi:</label>
-                            <textarea class="form-control" id="deskripsi" name="deskripsi">{{ $jenisSampah->deskripsi }}</textarea>
+                            <textarea class="form-control" id="deskripsi"
+                                name="deskripsi">{{ $jenisSampah->deskripsi }}</textarea>
                         </div>
 
-                        <div class="form-group mt-3"> 
+                        <div class="form-group mt-3">
                             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                         </div>
                     </form>

@@ -6,6 +6,7 @@ use App\Models\Induk;
 use App\Models\KategoriSampah;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class KategoriSampahController extends Controller
 {
@@ -101,11 +102,22 @@ class KategoriSampahController extends Controller
      */
     public function destroy($id)
     {
-        $kategoriSampah = KategoriSampah::findOrFail($id);
-        $kategoriSampah->delete();
+        try {
+            $kategoriSampah = KategoriSampah::findOrFail($id);
+            $kategoriSampah->delete();
     
-        return redirect()->route('kategoriSampah.index')->with('success', 'Kategori Sampah berhasil dihapus');
+            return redirect()->route('kategoriSampah.index')->with('success', 'Kategori Sampah berhasil dihapus');
+        } catch (QueryException $e) {
+            // Tangkap pesan kesalahan dari query dan tambahkan ke notifikasi
+            $errorMessage = $e->getMessage();
+            return redirect()->route('kategoriSampah.index')->with('error', "Kategori Sampah tidak dapat dihapus. Kesalahan: $errorMessage");
+        } catch (\Exception $e) {
+            // Tangkap kesalahan umum dan tampilkan pesan error
+            $errorMessage = $e->getMessage();
+            return redirect()->route('kategoriSampah.index')->with('error', "Kategori Sampah tidak dapat dihapus. Terjadi kesalahan: $errorMessage");
+        }
     }
+    
 
 
       /**

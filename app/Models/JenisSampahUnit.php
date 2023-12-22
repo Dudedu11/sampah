@@ -5,24 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JenisSampahInduk extends Model
+class JenisSampahUnit extends Model
 {
-    protected $table = 'jenis_sampah_induks';
+    protected $table = 'jenis_sampah_units';
 
     protected $casts = [
-        'kategori_id' => 'int'
+        'unit_id' => 'int'
     ];
 
     protected $fillable = [
-        'kategori_id', 
+        'unit_id', 
         'nama',
         'satuan', 
-        'harga', 
+        'harga_jual',
+        'harga_beli', 
         'stok', 
         'deskripsi'
     ];
-    public function kategori()
+    public function unit()
     {
-        return $this->belongsTo(KategoriSampah::class, 'kategori_id');
+        return $this->belongsTo(Unit::class, 'unit_id');
     }
 }
