@@ -3,4 +3,5 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 <script type="text/javascript">
     new DataTable('#example');
+    
 </script>
