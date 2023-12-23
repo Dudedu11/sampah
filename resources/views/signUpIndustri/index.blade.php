@@ -30,18 +30,18 @@
                         <div class="text-center mt-4">
                             <h1 class="h2">Forum Bank Sampah Jabar</h1>
                             <p class="lead">
-                                Pendaftaran Akun Bank Sampah Induk
+                                Pendaftaran Akun Bank Sampah Industri
                             </p>
                         </div>
 
                         <div class="card">
                             <div class="card-body">
                                 <div class="m-sm-4">
-                                <form action="{{ route('signUpInduk.store') }}" method="POST" id="pembelianForm">
+                                <form action="{{ route('signUpIndustri.store') }}" method="POST" id="pembelianForm">
                                         @csrf
                                         <div class="mb-3">
-                                            <label class="form-label">Nama Bank Sampah</label>
-                                            <input class="form-control form-control-lg" type="text" name="nama" placeholder="Enter the name of the waste bank" />
+                                            <label class="form-label">Nama Industri</label>
+                                            <input class="form-control form-control-lg" type="text" name="nama" placeholder="Enter your company name" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Nama Ketua</label>
@@ -63,22 +63,12 @@
                                             <label class="form-label">Alamat</label>
                                             <input class="form-control form-control-lg" type="text" name="alamat" placeholder="Enter your address" />
                                         </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Bank</label>
-                                            <input class="form-control form-control-lg" type="text" name="namaBank" placeholder="Enter your bank name" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">No Rekening</label>
-                                            <input class="form-control form-control-lg" type="text" name="noRekening" placeholder="Enter your account number" />
-                                        </div>
-                                        <div class="text-center mt-3">
                                             <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

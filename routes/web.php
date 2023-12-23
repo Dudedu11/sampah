@@ -1,14 +1,17 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JenisSampahIndukController;
 use App\Http\Controllers\KategoriSampah;
-use App\Http\Controllers\KategoriSampahController;
 use App\Http\Controllers\NasabahController;
-use App\Http\Controllers\SignUpIndukController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SignUpUnitController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JenisSampahController;
+use App\Http\Controllers\SignUpIndukController;
+use App\Http\Controllers\KategoriSampahController;
+use App\Http\Controllers\SignUpIndustriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +28,7 @@ Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::post('loginAction', [AuthController::class, 'loginAction'])->name('loginAction');
 Route::resource('signUpInduk', SignUpIndukController::class);
 Route::resource('signUpUnit', SignUpUnitController::class);
+Route::resource('signUpIndustri', SignUpIndustriController::class);
 
 // edit&delete KategoriSampah
 Route::get('kategoriSampah/{kategoriSampah}/edit', 'KategoriSampahController@edit')->name('kategoriSampah.edit');

@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 
-use App\Models\Induk;
 use App\Models\Unit;
-use Illuminate\Support\ServiceProvider;
+use App\Models\Induk;
+use App\Models\Industri;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,8 @@ class AppServiceProvider extends ServiceProvider
                 $users = Unit::where('user_id', $user)->first();
             }elseif($role == 3){
                 $users = Induk::where('user_id', $user)->first();
+            }elseif($role == 4) {
+                $users = Industri::where('user_id', $user)->first();
             }
     
             $view->with('users', $users);

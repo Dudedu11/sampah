@@ -40,28 +40,28 @@
                                     <form action="{{ route('signUpUnit.store') }}" method="POST" id="pembelianForm">
                                         @csrf
                                         <div class="mb-3">
-                                            <label class="form-label">Email</label>
-                                            <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter password" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Password</label>
-                                            <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
-                                        </div>
-                                        <div class="mb-3">
                                             <label class="form-label">Nama Bank Sampah</label>
-                                            <input class="form-control form-control-lg" type="text" name="nama" placeholder="Enter your name" />
+                                            <input class="form-control form-control-lg" type="text" name="nama" placeholder="Enter the name of the waste bank" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Nama Ketua</label>
-                                            <input class="form-control form-control-lg" type="text" name="namaKetua" placeholder="Enter your company name" />
+                                            <input class="form-control form-control-lg" type="text" name="namaKetua" placeholder="Enter your chairman name" />
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label">Alamat</label>
-                                            <input class="form-control form-control-lg" type="text" name="alamat" placeholder="Enter your email" />
+                                            <label class="form-label">Email</label>
+                                            <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Password</label>
+                                            <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">No Telepon</label>
-                                            <input class="form-control form-control-lg" type="text" name="noTelepon" placeholder="Enter password" />
+                                            <input class="form-control form-control-lg" type="text" name="noTelepon" placeholder="Enter your telephone number" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Alamat</label>
+                                            <input class="form-control form-control-lg" type="text" name="alamat" placeholder="Enter your address" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Bank Sampah Induk</label>
@@ -76,11 +76,11 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Bank</label>
-                                            <input class="form-control form-control-lg" type="text" name="namaBank" placeholder="Enter password" />
+                                            <input class="form-control form-control-lg" type="text" name="namaBank" placeholder="Enter your bank name" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">No Rekening</label>
-                                            <input class="form-control form-control-lg" type="text" name="noRekening" placeholder="Enter password" />
+                                            <input class="form-control form-control-lg" type="text" name="noRekening" placeholder="Enter your account number" />
                                         </div>
                                         <div class="text-center mt-3">
                                             <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
