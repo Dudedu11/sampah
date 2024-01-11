@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('jenis_sampah_induks', function (Blueprint $table) {
             $table->foreign(['kategori_id'], 'fk_kategori_jenis')->references(['id'])->on('kategori_sampahs');
+            $table->foreign(['induk_id'], 'fk_induk_jenis')->references(['id'])->on('induks');
         });
     }
 

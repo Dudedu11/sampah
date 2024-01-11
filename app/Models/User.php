@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Unit::class, 'user_id');
     }
+
+    public function industris()
+    {
+        return $this->hasMany(Industri::class, 'user_id');
+    }
 }

@@ -24,7 +24,7 @@ class SignUpUnitStore extends FormRequest
     public function rules()
     {
         return [
-            'indukId' => 'required',
+            'indukId' => 'nullable',
             'nama' => 'required',
             'namaKetua' => 'required',
             'alamat' => 'required',

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('jenis_sampah_induks', function (Blueprint $table) {
             $table->bigInteger('id', true);
             $table->bigInteger('kategori_id')->index('fk_kategori_jenis');
+            $table->bigInteger('induk_id')->index('fk_induk_jenis');
             $table->string('nama')->nullable();
             $table->string('satuan')->nullable();
             $table->decimal('harga', 10, 0)->nullable();

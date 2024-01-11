@@ -65,7 +65,7 @@
         <div class="col-md-6">
         </div>
         <div class="col-md-6 text-end">
-            <a class="btn btn-secondary" href="{{ route('jenisSampah.index') }}">Back</a>
+            <a class="btn btn-secondary" href="{{ route('jenisSampahInduk.index') }}">Back</a>
         </div>
     </div>
 

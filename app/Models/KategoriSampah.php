@@ -20,7 +20,7 @@ class KategoriSampah extends Model
         return $this->belongsTo(Induk::class, 'induk_id');
     }
 
-    public function jenisSampahs()
+    public function jenisSampahInduks()
     {
         return $this->hasMany(JenisSampahInduk::class, 'kategori_id');
     }

@@ -21,6 +21,44 @@
                     <i class="align-middle" data-feather="user"></i> <span class="align-middle">Nasabah</span>
                 </a>
             </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('jenisSampahUnit.index') }}">
+                    <i class="align-middle" data-feather="trash-2"></i> <span class="align-middle">Jenis Sampah</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('transaksiNasabah.index') }}">
+                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Transaksi Nasabah</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('tarikTunaiNasabah.index') }}">
+                    <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Tarik Tunai Nasabah</span>
+                </a>
+            </li>
+
+            @if($users->induk_id != null)
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('penjemputanSampahUnit.index') }}">
+                    <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Request Penjemputan Sampah</span>
+                </a>
+            </li>
+            @else
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('penguranganSampahUnit.index') }}">
+                    <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Pengurangan Sampah</span>
+                </a>
+            </li>
+            @endif
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('requestPendampinganUnit.index') }}">
+                    <i class="align-middle" data-feather="inbox"></i> <span class="align-middle">Request Pendampingan</span>
+                </a>
+            </li>
             @endif
 
             @if(session('role') == 3 )
@@ -31,11 +69,61 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="{{ route('jenisSampah.index') }}">
+                <a class="sidebar-link" href="{{ route('jenisSampahInduk.index') }}">
                     <i class="align-middle" data-feather="trash-2"></i> <span class="align-middle">Jenis Sampah</span>
                 </a>
             </li>
 
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('sampahTreatment.index') }}">
+                    <i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">Sampah Treatment</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('konversiSampah.index') }}">
+                    <i class="align-middle" data-feather="repeat"></i> <span class="align-middle">Konversi Sampah</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('penjemputanSampah.index') }}">
+                    <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Request Penjemputan Sampah</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('tarikTunaiUnit.index') }}">
+                    <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Tarik Tunai Unit</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('transaksiIndustri.index') }}">
+                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Transaksi Industri</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('requestPendampinganUnit.index') }}">
+                    <i class="align-middle" data-feather="inbox"></i> <span class="align-middle">Request Pendampingan</span>
+                </a>
+            </li>
+
+            @endif
+
+            @if(session('role') == 4)
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('transaksiIndustri.index') }}">
+                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Transaksi Industri</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('induk.index') }}">
+                    <i class="align-middle" data-feather="user"></i> <span class="align-middle">Industri</span>
+                </a>
+            </li>
             @endif
             <!--
             <li class="sidebar-item">

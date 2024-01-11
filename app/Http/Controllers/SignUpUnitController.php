@@ -42,7 +42,6 @@ class SignUpUnitController extends Controller
      */
     public function store(SignUpUnitStore $request): RedirectResponse
     {
-        // dd($request);
         $user = User::create([
             'role_id' => 2,
             'email' => $request->email,

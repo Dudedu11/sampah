@@ -74,7 +74,10 @@ class NasabahController extends Controller
      */
     public function edit($id)
     {
-        //
+        $nasabah = Nasabah::where('id', $id)->first();
+        return view('nasabah.edit',[
+            'nasabah' => $nasabah
+        ]);
     }
 
     /**
@@ -86,7 +89,18 @@ class NasabahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nasabah = Nasabah::findOrFail($id);
+
+        $nasabah->update([
+            'nik' => $request->nik,
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'no_telepon' => $request->noTelepon,
+            'no_rekening' => $request->noRekening,
+            'saldo' => $request->saldo
+        ]);
+
+        return $this->redirectRoute(nasabah: $nasabah);
     }
 
     /**
@@ -97,11 +111,14 @@ class NasabahController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $nasabah = Nasabah::findOrFail($id);
+        $nasabah->delete();
+
+        return $this->redirectRoute(nasabah: $nasabah);
     }
 
 
-       /**
+    /**
      * Redirect route based on condition.
      *
      * @param  mixed $user

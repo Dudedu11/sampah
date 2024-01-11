@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->bigInteger('id', true);
             $table->bigInteger('user_id')->index('fk_user_unit');
-            $table->bigInteger('induk_id')->index('fk_induk_unit');
+            $table->bigInteger('induk_id')->index('fk_induk_unit')->nullable();
             $table->string('nama')->nullable();
             $table->string('nama_ketua')->nullable();
             $table->string('alamat')->nullable();

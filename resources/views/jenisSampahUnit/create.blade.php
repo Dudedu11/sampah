@@ -12,18 +12,8 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('jenisSampah.store') }}" method="POST" id="jenisSampahForm">
+                    <form action="{{ route('jenisSampahUnit.store') }}" method="POST" id="jenisSampahForm">
                         @csrf
-                        <div class="mb-3">
-                            <label for="kategori_id" class="form-label">Kategori Sampah</label>
-                            <!-- Ubah ini sesuai dengan cara Anda menampilkan kategori sampah -->
-                            <select class="form-control" id="kategori_id" name="kategori_id" required>
-                                <option value="">Pilih Kategori Sampah</option>
-                                @foreach ($kategoriSampahs as $kategoriSampah)
-                                    <option value="{{ $kategoriSampah->id }}">{{ $kategoriSampah->nama }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
                             <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama" required>
@@ -33,8 +23,12 @@
                             <input type="text" class="form-control" id="satuan" name="satuan" placeholder="Masukkan Satuan" required>
                         </div>
                         <div class="mb-3">
-                            <label for="harga" class="form-label">Harga</label>
-                            <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan Harga " value="0" readonly>
+                            <label for="harga" class="form-label">Harga Beli</label>
+                            <input type="number" class="form-control" id="harga_beli" name="harga_beli" placeholder="Masukkan Harga " required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="harga" class="form-label">Harga Jual</label>
+                            <input type="number" class="form-control" id="harga_jual" name="harga_jual" placeholder="Masukkan Harga " required>
                         </div>
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>

@@ -41,7 +41,7 @@ class SignUpIndustriController extends Controller
     public function store(SignUpIndustriStore $request): RedirectResponse
     {
         $user = User::create([
-            'role_id' => 3,
+            'role_id' => 4,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);

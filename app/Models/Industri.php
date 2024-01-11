@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Industri extends Model
 {
-    protected $table = 'industris';
+    protected $table = 'industries';
 
     protected $casts = [
         'user_id' => 'int'

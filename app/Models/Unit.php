@@ -41,4 +41,14 @@ class Unit extends Model
     {
         return $this->hasMany(Nasabah::class, 'unit_id');
     }
+
+    public function transaksiNasabahs()
+    {
+        return $this->hasMany(TransaksiNasabah::class, 'unit_id');
+    }
+
+    public function tarikTunaiNasabahs()
+    {
+        return $this->hasMany(TransaksiNasabah::class, 'unit_id');
+    }
 }

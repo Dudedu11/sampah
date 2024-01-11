@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('industris', function (Blueprint $table) {
+        Schema::create('detail_transaksi_nasabahs', function (Blueprint $table) {
             $table->bigInteger('id', true);
-            $table->bigInteger('user_id')->index('fk_user_induk');
-            $table->string('nama')->nullable();
-            $table->string('nama_ketua')->nullable();
-            $table->string('no_telepon')->nullable();
-            $table->string('alamat')->nullable();
-            $table->boolean('is_active')->nullable();
+            $table->bigInteger('transaksi_id')->index('fk_detailN_transaksi');
+            $table->bigInteger('jenis_sampah_unit_id')->index('fk_detailN_jenis');
+            $table->integer('jumlah')->nullable();
+            $table->decimal('total', 10,0);
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('industris');
+        Schema::dropIfExists('detail_transaksi_nasabahs');
     }
 };

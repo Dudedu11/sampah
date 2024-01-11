@@ -57,4 +57,9 @@ class Induk extends Model
     {
         return $this->hasMany(KategoriSampah::class, 'induk_id');
     }
+
+    public function jenisSampahInduks()
+    {
+        return $this->hasMany(JenisSampahInduk::class, 'induk_id');
+    }
 }

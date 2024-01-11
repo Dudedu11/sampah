@@ -27,4 +27,14 @@ class Nasabah extends Model
     {
         return $this->belongsTo(Unit::class, 'unit_id');
     }
+
+    public function transaksiNasabahs()
+    {
+        return $this->hasMany(TransaksiNasabah::class, 'nasabah_id');
+    }
+
+    public function tarikTunaiNasabahs()
+    {
+        return $this->hasMany(TransaksiNasabah::class, 'nasabah_id');
+    }
 }
