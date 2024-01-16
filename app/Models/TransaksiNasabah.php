@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class TransaksiNasabah extends Model
 {
@@ -35,4 +36,13 @@ class TransaksiNasabah extends Model
     {
         return $this->hasMany(DetailTransaksiNasabah::class, 'transaksi_id');
     }
+
+    public static function getTotalTransakasiNasabah($year, $month, $unit_id)
+    {
+        return self::where('unit_id', $unit_id)
+            ->whereYear('tanggal', $year)
+            ->whereMonth('tanggal', $month)
+            ->count();
+    }
+    
 }

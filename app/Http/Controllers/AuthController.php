@@ -20,13 +20,19 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'is_active' => true])) {
             $user = Auth::user();
             session(['role' => $user->role_id]);
             session(['user' => $user->id]);
             return redirect()->intended('/dashboard');
         } else {
-            return "gagal";
+            return redirect()->back()->with('error', 'Akun belum diverifikasi.');
         }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

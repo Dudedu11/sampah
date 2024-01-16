@@ -36,4 +36,12 @@ class PenjemputanSampahUnit extends Model
     {
         return $this->hasMany(DetailPenjemputanSampahUnit::class, 'penjemputan_id');
     }
+
+    public static function getTotalTransakasiUnit($year, $month, $unit_id)
+    {
+        return self::where('unit_id', $unit_id)
+            ->whereYear('tanggal', $year)
+            ->whereMonth('tanggal', $month)
+            ->count();
+    }
 }

@@ -3,7 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\fbj\KelolaAkunController;
+use App\Http\Controllers\fbj\ListIndukController;
+use App\Http\Controllers\fbj\ListIndustriController;
+use App\Http\Controllers\fbj\ListRequestPendampinganController;
+use App\Http\Controllers\fbj\ListTransaksiIndukController;
+use App\Http\Controllers\fbj\ListTransaksiNasabahController;
+use App\Http\Controllers\fbj\ListTransaksiUnitController;
+use App\Http\Controllers\fbj\ListUnitController;
 use App\Http\Controllers\induk\KonversiSampahController;
+use App\Http\Controllers\induk\LaporanTransaksiIndustriController;
 use App\Http\Controllers\induk\PenjemputanSampahController;
 use App\Http\Controllers\induk\SampahTreatmentController;
 use App\Http\Controllers\induk\TarikTunaiUnitController;
@@ -17,6 +26,9 @@ use App\Http\Controllers\JenisSampahController;
 use App\Http\Controllers\JenisSampahUnitController;
 use App\Http\Controllers\SignUpIndukController;
 use App\Http\Controllers\KategoriSampahController;
+use App\Http\Controllers\LaporanPenguranganUnitController;
+use App\Http\Controllers\LaporanPenjemputanSampahController;
+use App\Http\Controllers\LaporanTransaksiNasabahController;
 use App\Http\Controllers\PenguranganSampahUnitController;
 use App\Http\Controllers\PenjemputanSampahUnitController;
 use App\Http\Controllers\RequestPendampinganUnitController;
@@ -37,6 +49,7 @@ use App\Http\Controllers\TransaksiNasabahController;
 
 Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::post('loginAction', [AuthController::class, 'loginAction'])->name('loginAction');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('signUpInduk', SignUpIndukController::class);
 Route::resource('signUpUnit', SignUpUnitController::class);
 Route::resource('signUpIndustri', SignUpIndustriController::class);
@@ -62,6 +75,9 @@ Route::resource('tarikTunaiNasabah', TarikTunaiController::class);
 Route::resource('penguranganSampahUnit', PenguranganSampahUnitController::class);
 Route::resource('requestPendampinganUnit', RequestPendampinganUnitController::class);
 Route::resource('penjemputanSampahUnit', PenjemputanSampahUnitController::class);
+Route::resource('laporanTransaksiNasabah', LaporanTransaksiNasabahController::class);
+Route::resource('laporanPenguranganUnit', LaporanPenguranganUnitController::class);
+Route::resource('laporanPenjemputanSampah', LaporanPenjemputanSampahController::class);
 
 //induk
 Route::resource('penjemputanSampah', PenjemputanSampahController::class);
@@ -69,7 +85,18 @@ Route::resource('tarikTunaiUnit', TarikTunaiUnitController::class);
 Route::resource('sampahTreatment', SampahTreatmentController::class);
 Route::resource('konversiSampah', KonversiSampahController::class);
 Route::resource('transaksiIndustri', TransaksiIndustriController::class);
+Route::resource('laporanTransaksiIndustri', LaporanTransaksiIndustriController::class);
 
 //industri
 Route::resource('induk', IndukController::class);
+
+//fbj
+Route::resource('kelolaAkun', KelolaAkunController::class);
+Route::resource('listUnit', ListUnitController::class);
+Route::resource('listInduk', ListIndukController::class);
+Route::resource('listIndustri', ListIndustriController::class);
+Route::resource('listTransaksiNasabah', ListTransaksiNasabahController::class);
+Route::resource('listTransaksiUnit', ListTransaksiUnitController::class);
+Route::resource('listTransaksiInduk', ListTransaksiIndukController::class);
+Route::resource('listRequestPendampingan', ListRequestPendampinganController::class);
 }); 

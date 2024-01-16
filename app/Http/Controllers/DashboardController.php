@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Nasabah;
+use App\Models\TransaksiIndustri;
+use App\Models\TransaksiNasabah;
 use App\Models\Unit;
 use Illuminate\Http\Request;
 
@@ -14,7 +17,36 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        if (session('role') == 1) {
+            $transaksi = TransaksiIndustri::all();
+            $saldo = 0;
+            foreach ($transaksi as $item) {
+                $saldo += $item->total * 15 / 100;
+            }
+            return view('dashboard.index', [
+                'saldo' => $saldo
+            ]);
+        }else{
+            $transaksiModel = new TransaksiNasabah();
+            $user = session('user');
+            $unit = Unit::where('user_id', $user)->first();
+            $nasabah = Nasabah::where('unit_id', $unit->id)->count();
+
+            $year = 2024; 
+            $months = range(1, 12);
+    
+            $totalData = [];
+    
+            foreach ($months as $month) {
+                $totalDatas = $transaksiModel->getTotalTransakasiNasabah($year, $month, $unit->id);
+                $totalData[] = $totalDatas;
+            }
+
+            return view('dashboard.index', [
+                'nasabah' => $nasabah,
+                'totalDataPemasukan' => $totalData
+            ]);
+        }
     }
 
     /**
