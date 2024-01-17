@@ -26,17 +26,17 @@ class DashboardController extends Controller
             return view('dashboard.index', [
                 'saldo' => $saldo
             ]);
-        }else{
+        } elseif (session('role') == 2) {
             $transaksiModel = new TransaksiNasabah();
             $user = session('user');
             $unit = Unit::where('user_id', $user)->first();
             $nasabah = Nasabah::where('unit_id', $unit->id)->count();
 
-            $year = 2024; 
+            $year = 2024;
             $months = range(1, 12);
-    
+
             $totalData = [];
-    
+
             foreach ($months as $month) {
                 $totalDatas = $transaksiModel->getTotalTransakasiNasabah($year, $month, $unit->id);
                 $totalData[] = $totalDatas;
@@ -46,6 +46,8 @@ class DashboardController extends Controller
                 'nasabah' => $nasabah,
                 'totalDataPemasukan' => $totalData
             ]);
+        } else {
+            return view('dashboard.index');
         }
     }
 
