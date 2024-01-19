@@ -15,7 +15,9 @@ class ListIndustriController extends Controller
      */
     public function index()
     {
-        $industris = Industri::all();
+        $industris = Industri::whereHas('user', function ($query) {
+            $query->where('is_active', true);
+        })->get();
         return view('fbj.listIndustri.index', [
             'industris' => $industris
         ]);

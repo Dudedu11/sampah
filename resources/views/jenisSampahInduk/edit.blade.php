@@ -12,7 +12,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('jenisSampah.update', ['jenisSampah' => $jenisSampah->id]) }}" method="POST">
+                <form action="{{ route('jenisSampahInduk.update', $jenisSampah->id) }}" method="POST" id="pembelianForm">
                         @csrf
                         @method('PUT')
 

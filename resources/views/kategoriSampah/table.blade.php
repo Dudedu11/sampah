@@ -1,3 +1,9 @@
+<style>
+    .red-icon {
+        color: red;
+    }
+</style>
+
 <table class="table table-bordered" id="example" cellspacing="0" width="100%">
     <thead>
         <tr>
@@ -7,26 +13,21 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($kategoriSampahs as $kategoriSampah)
+        @foreach ($kategoriSampahs as $index => $kategoriSampah)
         <tr>
-            <td></td>
+            <td style="text-align:center;">{{ $index + 1 }}</td>
             <td>{{ $kategoriSampah->nama }}</td>
             <td style="text-align:center;">
 
-                <a href="{{ route('kategoriSampah.edit', ['kategoriSampah' => $kategoriSampah->id]) }}"
-                    class="text-primary icon-link" data-feather="edit" title="Edit"
-                    onclick="event.preventDefault(); window.location.href='{{ route('kategoriSampah.edit', ['kategoriSampah' => $kategoriSampah->id]) }}';"></a>
-
-                <a href="{{ route('kategoriSampah.destroy', ['kategoriSampah' => $kategoriSampah->id]) }}"
-                    class="text-danger icon-link"
-                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $kategoriSampah->id }}').submit();"
-                    data-feather="trash-2" title="Delete"></a>
-
-                <form id="delete-form-{{ $kategoriSampah->id }}"
-                    action="{{ route('kategoriSampah.destroy', ['kategoriSampah' => $kategoriSampah->id]) }}"
-                    method="POST" style="display: none;">
+                <a href="{{ route('kategoriSampah.edit', $kategoriSampah->id) }}" role="button">
+                    <i class="align-middle" data-feather="edit"></i>
+                </a>
+                <form style="display: inline;" onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('kategoriSampah.destroy', $kategoriSampah->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
+                    <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">
+                        <i class="align-middle red-icon" data-feather="trash"></i>
+                    </button>
                 </form>
 
             </td>

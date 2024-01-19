@@ -5,8 +5,10 @@
             <th style="text-align:center;">Tanggal</th>
             <th style="text-align:center;">Nama Sampah</th>
             <th style="text-align:center;">Jumlah</th>
+            <th style="text-align:center;">Satuan</th>
             <th style="text-align:center;">Sampah Treatment</th>
             <th style="text-align:center;">Jumlah</th>
+            <th style="text-align:center;">Satuan</th>
         </tr>
     </thead>
     <tbody>
@@ -16,8 +18,10 @@
             <td>{{ $konversiSampah->tanggal }}</td>
             <td>{{ $konversiSampah->jenisSampah->nama }}</td>
             <td>{{ $konversiSampah->jumlah_sampah }}</td>
+            <td>{{ $konversiSampah->jenisSampah->satuan }}</td>
             <td>{{ $konversiSampah->sampahTreatment->nama }}</td>
             <td>{{ $konversiSampah->jumlah_treatment }}</td>
+            <td>{{ $konversiSampah->sampahTreatment->satuan }}</td>
         </tr>
         @endforeach
     </tbody>

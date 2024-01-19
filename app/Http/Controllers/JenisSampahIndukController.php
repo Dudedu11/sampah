@@ -117,7 +117,7 @@ class JenisSampahIndukController extends Controller
         $jenisSampah = JenisSampahInduk::find($id);
         $kategoriSampahs = KategoriSampah::all(); // Sesuaikan dengan model dan data yang benar
 
-        return view('jenisSampah.edit', compact('jenisSampah', 'kategoriSampahs'));
+        return view('jenisSampahInduk.edit', compact('jenisSampah', 'kategoriSampahs'));
     }
 
     /**
@@ -139,7 +139,7 @@ class JenisSampahIndukController extends Controller
             'deskripsi' => $request->input('deskripsi'),
         ]);
 
-        return redirect()->route('jenisSampah.index')->with('success', 'Data berhasil diperbarui.');
+        return redirect()->route('jenisSampahInduk.index')->with('success', 'Data berhasil diperbarui.');
     }
 
 
@@ -154,12 +154,12 @@ class JenisSampahIndukController extends Controller
         $jenisSampah = JenisSampahInduk::find($id);
 
         if (!$jenisSampah) {
-            return redirect()->route('jenisSampah.destroy')->with('error', 'Data tidak ditemukan.');
+            return redirect()->route('jenisSampahInduk.destroy')->with('error', 'Data tidak ditemukan.');
         }
 
         $jenisSampah->delete();
 
-        return redirect()->route('jenisSampah.index')->with('success', 'Data berhasil dihapus.');
+        return redirect()->route('jenisSampahInduk.index')->with('success', 'Data berhasil dihapus.');
     }
 
 

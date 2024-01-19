@@ -35,4 +35,28 @@ class TransaksiIndustri extends Model
     {
         return $this->hasMany(DetailTransaksiIndustri::class, 'transaksi_id');
     }
+
+    public static function getTotalPemasukanInduk($year, $month, $induk_id)
+    {
+        return self::where('induk_id', $induk_id)
+            ->whereYear('tanggal', $year)
+            ->whereMonth('tanggal', $month)
+            ->sum('total');
+    }
+
+    
+    public static function getTotalPengeluaranIndustri($year, $month, $industri_id)
+    {
+        return self::where('industri_id', $industri_id)
+            ->whereYear('tanggal', $year)
+            ->whereMonth('tanggal', $month)
+            ->sum('total');
+    }
+
+    public static function getTotalTransakasiInduk($year, $month)
+    {
+        return self::whereYear('tanggal', $year)
+            ->whereMonth('tanggal', $month)
+            ->count();
+    }
 }

@@ -4,6 +4,7 @@
             <th style="width:5%; text-align:center;">No.</th>
             <th style="width:15%; text-align:center;">Nama</th>
             <th style="width:10%; text-align:center;">Satuan</th> 
+            <th style="width:10%; text-align:center;">Stok</th> 
             <th style="width:15%; text-align:center;">Harga Jual</th>
             <th style="width:15%; text-align:center;">Harga Beli</th>
             <th style="width:25%; text-align:center;">Deskripsi</th>
@@ -16,6 +17,7 @@
             <td style="width:5%">{{ $index + 1 }}</td>
             <td style="width:15%">{{ $jenisSampah->nama }}</td>
             <td style="width:10%; text-align:center;">{{ $jenisSampah->satuan }}</td>
+            <td style="width:10%; text-align:center;">{{ $jenisSampah->stok }}</td>
             <td style="width:15%">Rp. {{ number_format($jenisSampah->harga_jual) }}</td> 
             <td style="width:15%">Rp. {{ number_format($jenisSampah->harga_beli) }}</td>
             <td style="width:25%">{{ $jenisSampah->deskripsi }}</td>

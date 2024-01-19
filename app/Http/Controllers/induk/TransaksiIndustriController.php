@@ -164,7 +164,7 @@ class TransaksiIndustriController extends Controller
      */
     private function redirectRoute(
         TransaksiIndustri $transaksiIndustri,
-        String $route = 'transaksiNasabah.index',
+        String $route = 'transaksiIndustri.index',
         String $successMsg = 'Berhasil',
         String $errorMsg = 'Terjadi Kesalahan'
     ): RedirectResponse {

@@ -15,7 +15,9 @@ class ListIndukController extends Controller
      */
     public function index()
     {
-        $induks = Induk::all();
+        $induks = Induk::whereHas('user', function ($query) {
+            $query->where('is_active', true);
+        })->get();
         return view('fbj.listInduk.index', [
             'induks' => $induks
         ]);

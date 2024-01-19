@@ -29,4 +29,12 @@ class PenguranganSampahUnit extends Model
     {
         return $this->hasMany(DetailTransaksiNasabah::class, 'transaksi_id');
     }
+
+    public static function getTotalPengurangan($year, $month, $unit_id)
+    {
+        return self::where('unit_id', $unit_id)
+            ->whereYear('tanggal', $year)
+            ->whereMonth('tanggal', $month)
+            ->sum('total');
+    }
 }

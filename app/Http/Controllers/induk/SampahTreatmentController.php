@@ -83,7 +83,11 @@ class SampahTreatmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sampahTreatment = SampahTreatment::find($id);
+
+        return view('induk.sampahTreatment.edit', [
+            'sampahTreatment' => $sampahTreatment
+        ]);
     }
 
     /**
@@ -95,7 +99,17 @@ class SampahTreatmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sampahTreatment = SampahTreatment::findOrFail($id);
+
+        $sampahTreatment->update([
+            'nama' => $request->nama,
+            'satuan' => $request->satuan,
+            'stok' => $request->stok,
+            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
+        ]);
+
+        return $this->redirectRoute(sampahTreatment: $sampahTreatment);
     }
 
     /**
@@ -106,7 +120,15 @@ class SampahTreatmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sampahTreatment = SampahTreatment::find($id);
+
+        if (!$sampahTreatment) {
+            return redirect()->route('sampahTreatment.destroy')->with('error', 'Data tidak ditemukan.');
+        }
+
+        $sampahTreatment->delete();
+
+        return redirect()->route('sampahTreatment.index')->with('success', 'Data berhasil dihapus.');
     }
 
 

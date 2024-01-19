@@ -37,10 +37,17 @@ class TransaksiNasabah extends Model
         return $this->hasMany(DetailTransaksiNasabah::class, 'transaksi_id');
     }
 
-    public static function getTotalTransakasiNasabah($year, $month, $unit_id)
+    public static function getTotalPengeluaranUnit($year, $month, $unit_id)
     {
         return self::where('unit_id', $unit_id)
             ->whereYear('tanggal', $year)
+            ->whereMonth('tanggal', $month)
+            ->sum('total');
+    }
+
+    public static function getTotalTransakasiNasabah($year, $month)
+    {
+        return self::whereYear('tanggal', $year)
             ->whereMonth('tanggal', $month)
             ->count();
     }
