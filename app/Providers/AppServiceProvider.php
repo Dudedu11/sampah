@@ -32,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
             $role = session('role');
             $user = session('user');
             $users = null;
+            $nama = "Bank Sampah";
             if ($role == 1) {
                 $nama = "Forum Bank Jabar";
             } elseif ($role == 2) {
