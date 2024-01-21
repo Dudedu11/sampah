@@ -101,6 +101,11 @@ class TransaksiIndustriController extends Controller
             $index++;
         }
 
+        $induk->saldo += $total;
+        $induk->update([
+            'saldo' => $induk->saldo
+        ]);
+
         return $this->redirectRoute(transaksiIndustri: $transaksiIndustri);
     }
 

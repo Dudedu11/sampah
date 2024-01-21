@@ -254,6 +254,14 @@
                 </a>
             </li>
             @endif
+
+            @if(session('role') != 1)
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('profile.index') }}">
+                    <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+                </a>
+            </li>
+            @endif
             <!--
             <li class="sidebar-item">
                 <a class="sidebar-link" href="pages-sign-up.html">

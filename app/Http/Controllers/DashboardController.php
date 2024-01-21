@@ -28,9 +28,16 @@ class DashboardController extends Controller
             $penjemputanSampahUnit = new PenjemputanSampahUnit();
             $saldo = 0;
             $nasabah = Nasabah::count();
-            $unit = Unit::count();
-            $induk = Induk::count();
-            $industri = Industri::count();
+            $unit = Unit::whereHas('user', function ($query) {
+                $query->where('is_active', true);
+            })->count();
+            $induk = Induk::whereHas('user', function ($query) {
+                $query->where('is_active', true);
+            })->count();
+            $industri = Industri::whereHas('user', function ($query) {
+                $query->where('is_active', true);
+            })->count();
+
 
             $year = 2024;
             $months = range(1, 12);

@@ -31,6 +31,7 @@ use App\Http\Controllers\LaporanPenjemputanSampahController;
 use App\Http\Controllers\LaporanTransaksiNasabahController;
 use App\Http\Controllers\PenguranganSampahUnitController;
 use App\Http\Controllers\PenjemputanSampahUnitController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestPendampinganUnitController;
 use App\Http\Controllers\SignUpIndustriController;
 use App\Http\Controllers\TarikTunaiController;
@@ -48,6 +49,7 @@ use App\Http\Controllers\TransaksiNasabahController;
 */
 
 Route::get('/', [AuthController::class, 'index'])->name('login');
+Route::get('option', [AuthController::class, 'option'])->name('option');
 Route::post('loginAction', [AuthController::class, 'loginAction'])->name('loginAction');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('signUpInduk', SignUpIndukController::class);
@@ -64,6 +66,7 @@ Route::resource('signUpIndustri', SignUpIndustriController::class);
 
 Route::middleware('auth')->group(function () {
 Route::resource('dashboard', DashboardController::class);
+Route::resource('profile', ProfileController::class);
 
 //unit
 Route::resource('nasabah', NasabahController::class);

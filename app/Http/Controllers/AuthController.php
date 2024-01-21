@@ -13,6 +13,12 @@ class AuthController extends Controller
         return view('auth.index');
     }
 
+    public function option()
+    {
+        return view('auth.option');
+    }
+
+
     public function loginAction(Request $request)
     {
         $request->validate([

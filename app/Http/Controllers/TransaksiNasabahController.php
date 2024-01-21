@@ -98,6 +98,11 @@ class TransaksiNasabahController extends Controller
             $index++;
         }
 
+        $unit->saldo -+ $total;
+        $unit->update([
+            'saldo' => $unit->saldo
+        ]);
+
         $nasabah = Nasabah::findOrFail($request->nasabah_id);
         $nasabah->saldo += $total;
         $nasabah->update([

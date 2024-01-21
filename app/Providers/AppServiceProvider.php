@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
                 $nama = "Bank Sampah Unit";
             } elseif ($role == 3) {
                 $users = Induk::where('user_id', $user)->first();
-                $nama = "Bank Sampah Industri";
+                $nama = "Bank Sampah Induk";
             } elseif ($role == 4) {
                 $users = Industri::where('user_id', $user)->first();
                 $nama = "Industri";

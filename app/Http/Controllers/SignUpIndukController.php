@@ -116,7 +116,7 @@ class SignUpIndukController extends Controller
     private function redirectRoute(
         User $user,
         Induk $induk,
-        String $route = 'signUpInduk.index',
+        String $route = 'login',
         String $successMsg = 'Berhasil',
         String $errorMsg = 'Terjadi Kesalahan'
     ): RedirectResponse {

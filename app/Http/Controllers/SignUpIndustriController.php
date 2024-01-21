@@ -114,7 +114,7 @@ class SignUpIndustriController extends Controller
     private function redirectRoute(
         Industri $industri,
         User $user,
-        String $route = 'signUpIndustri.index',
+        String $route = 'login',
         String $successMsg = 'Berhasil',
         String $errorMsg = 'Terjadi Kesalahan'
     ): RedirectResponse {

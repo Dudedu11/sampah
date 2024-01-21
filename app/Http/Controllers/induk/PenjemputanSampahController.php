@@ -70,6 +70,11 @@ class PenjemputanSampahController extends Controller
                 'saldo' => $unit->saldo
             ]);
 
+            $induk->saldo -= $penjemputan->total;
+            $induk->update([
+                'saldo' => $induk->saldo
+            ]);
+
             $detail = DetailPenjemputanSampahUnit::where('penjemputan_id', $request->id)->get();
 
             foreach($detail as $item){

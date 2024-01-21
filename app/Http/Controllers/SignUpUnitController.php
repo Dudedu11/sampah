@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SignUpUnitStore;
 use App\Models\Induk;
+use App\Models\JenisSampahInduk;
+use App\Models\JenisSampahUnit;
 use App\Models\Unit;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -19,7 +21,7 @@ class SignUpUnitController extends Controller
      */
     public function index()
     {
-        return view('signUpUnit.index',[
+        return view('signUpUnit.index', [
             'induks' => Induk::all()
         ]);
     }
@@ -47,7 +49,7 @@ class SignUpUnitController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
-        
+
         $unit = Unit::create([
             'user_id' => $user->id,
             'induk_id' => $request->indukId,
@@ -58,6 +60,23 @@ class SignUpUnitController extends Controller
             'nama_bank' => $request->namaBank,
             'no_rekening' => $request->noRekening
         ]);
+
+        if ($request->indukId != null) {
+            $jenisSampah = JenisSampahInduk::where('induk_id', $request->indukId)->get();
+            if ($jenisSampah != null) {
+                foreach ($jenisSampah as $item) {
+                    JenisSampahUnit::create([
+                        'unit_id' => $unit->id,
+                        'nama' => $item->nama,
+                        'satuan' => $item->satuan,
+                        'harga_jual' => $item->harga,
+                        'harga_beli' => 0,
+                        'stok' => 0,
+                        'deskripsi' => $item->deskripsi,
+                    ]);
+                }
+            }
+        }
 
         return $this->redirectRoute(user: $user, unit: $unit);
     }
@@ -107,7 +126,7 @@ class SignUpUnitController extends Controller
         //
     }
 
-       /**
+    /**
      * Redirect route based on condition.
      *
      * @param  mixed $user
@@ -120,7 +139,7 @@ class SignUpUnitController extends Controller
     private function redirectRoute(
         User $user,
         Unit $unit,
-        String $route = 'signUpUnit.index',
+        String $route = 'login',
         String $successMsg = 'Berhasil',
         String $errorMsg = 'Terjadi Kesalahan'
     ): RedirectResponse {

@@ -36,28 +36,20 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <div class="m-sm-4">
-                                    <div class="text-center" style="padding-bottom: 20px;">
-                                        <img src="img/logosampah.jpg" class="img-fluid rounded-circle" width="132" height="132" />
-                                    </div>
-                                    <form action="{{ route('loginAction') }}" method="POST">
-                                        @csrf
-                                        <div class="mb-3">
-                                            <label class="form-label">Email</label>
-                                            <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Password</label>
-                                            <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
-                                        </div>
-                                        <div class="text-center mt-3">
-                                            <button type="submit" class="btn btn-lg btn-success">Sign in</button>
-                                        </div>
-                                        <a href="{{ route('option') }}" class="btn btn-primary">Register</a>
-                                    </form>
+                                <div class="row" style=" padding-bottom: 10px;">
+                                    <a href="{{ route('signUpUnit.index') }}" class="btn btn-primary btn-block" style="text-align: center;">Register Bank Sampah Unit</a>
+                                </div>
+                                <div class="row" style=" padding-bottom: 10px;">
+                                    <a href="{{ route('signUpInduk.index') }}" class="btn btn-primary btn-block" style="text-align: center;">Register Bank Sampah Induk</a>
+                                </div>
+                                <div class="row" style=" padding-bottom: 10px;">
+                                    <a href="{{ route('signUpIndustri.index') }}" class="btn btn-primary btn-block" style="text-align: center;">Industri</a>
                                 </div>
                             </div>
                         </div>
+
+
+
 
                     </div>
                 </div>
