@@ -1,6 +1,6 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand" href="index.html">
+        <a class="sidebar-brand" href="">
             <span class="align-middle">{{ $nama }}</span>
         </a>
 
@@ -69,6 +69,12 @@
             <li class="sidebar-item">
                 <a class="sidebar-link" href="{{ route('listRequestPendampingan.index') }}">
                     <i class="align-middle" data-feather="inbox"></i> <span class="align-middle">Request Pendampingan</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('informasi.index') }}">
+                    <i class="align-middle" data-feather="file"></i> <span class="align-middle">Informasi</span>
                 </a>
             </li>
             @endif
@@ -244,7 +250,7 @@
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="{{ route('induk.index') }}">
-                    <i class="align-middle" data-feather="user"></i> <span class="align-middle">Industri</span>
+                    <i class="align-middle" data-feather="user"></i> <span class="align-middle">Bank Sampah Induk</span>
                 </a>
             </li>
 

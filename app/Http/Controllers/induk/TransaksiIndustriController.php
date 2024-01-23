@@ -94,7 +94,7 @@ class TransaksiIndustriController extends Controller
                 'total' => $sampahTreatment->harga * $request->jumlah[$index]
             ]);
 
-            $sampahTreatment->stok += $request->jumlah[$index];
+            $sampahTreatment->stok -= $request->jumlah[$index];
             $sampahTreatment->update([
                 'stok' => $sampahTreatment->stok
             ]);

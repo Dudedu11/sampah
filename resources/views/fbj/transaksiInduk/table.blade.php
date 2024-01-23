@@ -20,7 +20,7 @@
             <td>Rp. {{ number_format($transaksi->total) }}</td>
             <td>Rp. {{ number_format($transaksi->total * 15/100) }}</td>
             <td style="text-align:center;">
-                <a href="{{ route('transaksiNasabah.edit', $transaksi->id)}}">
+                <a href="{{ route('transaksiIndustri.show', $transaksi->id)}}">
                     <i class="align-middle" data-feather="eye"></i>
                 </a>
             </td>

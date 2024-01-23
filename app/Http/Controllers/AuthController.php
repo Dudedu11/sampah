@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Informasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +16,10 @@ class AuthController extends Controller
 
     public function option()
     {
-        return view('auth.option');
+        $informasi = Informasi::all();
+        return view('auth.option',[
+            'informasis' => $informasi
+        ]);
     }
 
 

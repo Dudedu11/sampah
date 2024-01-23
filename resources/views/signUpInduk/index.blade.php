@@ -14,7 +14,7 @@
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-up.html" />
 
-    <title>Sign Up | AdminKit Demo</title>
+    <title>Sign Up </title>
 
     <link href="css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
                                 <form action="{{ route('signUpInduk.store') }}" method="POST" id="pembelianForm">
                                         @csrf
                                         <div class="mb-3">
-                                            <label class="form-label">Nama Bank Sampah</label>
+                                            <label class="form-label">Nama Bank Sampah Induk</label>
                                             <input class="form-control form-control-lg" type="text" name="nama" placeholder="Enter the name of the waste bank" />
                                         </div>
                                         <div class="mb-3">
@@ -64,12 +64,12 @@
                                             <input class="form-control form-control-lg" type="text" name="alamat" placeholder="Enter your address" />
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label">Bank</label>
-                                            <input class="form-control form-control-lg" type="text" name="namaBank" placeholder="Enter your bank name" />
-                                        </div>
-                                        <div class="mb-3">
                                             <label class="form-label">No Rekening</label>
                                             <input class="form-control form-control-lg" type="text" name="noRekening" placeholder="Enter your account number" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Bank</label>
+                                            <input class="form-control form-control-lg" type="text" name="namaBank" placeholder="Enter your bank name" />
                                         </div>
                                         <div class="text-center mt-3">
                                             <button type="submit" class="btn btn-lg btn-primary">Sign up</button>

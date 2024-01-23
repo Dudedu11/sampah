@@ -52,7 +52,6 @@ class PenjemputanSampahUnitController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'tanggal' => 'required|date',
             'jenis_sampah_unit_id.*' => 'required|integer',
             'jumlah.*' => 'required|integer',
         ]);
@@ -64,14 +63,13 @@ class PenjemputanSampahUnitController extends Controller
         $index = 0;
         foreach ($request->jenis_sampah_unit_id as $item) {
             $jenisSampah = JenisSampahUnit::where('id', $item)->first();
-            $total += $jenisSampah->harga_beli * $request->jumlah[$index];
+            $total += $jenisSampah->harga_jual * $request->jumlah[$index];
             $index++;
         }
 
         $penjemputan = PenjemputanSampahUnit::create([
             'unit_id' => $unit->id,
             'induk_id' => $unit->induk_id,
-            'tanggal' => $request->tanggal,
             'total' => $total
         ]);
 
@@ -82,7 +80,7 @@ class PenjemputanSampahUnitController extends Controller
                 'penjemputan_id' => $penjemputan->id,
                 'jenis_sampah_unit_id' => $jenisSampah->id,
                 'jumlah' => $request->jumlah[$index],
-                'total' => $jenisSampah->harga_beli * $request->jumlah[$index]
+                'total' => $jenisSampah->harga_jual * $request->jumlah[$index]
             ]);
 
             $index++;

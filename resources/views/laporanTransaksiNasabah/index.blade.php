@@ -98,6 +98,7 @@
 
                         <form action="{{ route('laporanTransaksiNasabah.store') }}" method="post">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $users->id}}">
                             <input type="hidden" name="tgl_dari" value="{{ $tgl_dari }}">
                             <input type="hidden" name="tgl_sampai" value="{{ $tgl_sampai }}">
                             <input type="hidden" name="nasabah" value="{{ $nasabah }}">

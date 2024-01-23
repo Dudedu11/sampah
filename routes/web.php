@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\fbj\InformasiController;
 use App\Http\Controllers\fbj\KelolaAkunController;
 use App\Http\Controllers\fbj\ListIndukController;
 use App\Http\Controllers\fbj\ListIndustriController;
@@ -102,4 +103,5 @@ Route::resource('listTransaksiNasabah', ListTransaksiNasabahController::class);
 Route::resource('listTransaksiUnit', ListTransaksiUnitController::class);
 Route::resource('listTransaksiInduk', ListTransaksiIndukController::class);
 Route::resource('listRequestPendampingan', ListRequestPendampinganController::class);
+Route::resource('informasi', InformasiController::class);
 }); 

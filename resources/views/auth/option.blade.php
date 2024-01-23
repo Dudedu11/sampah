@@ -48,8 +48,14 @@
                             </div>
                         </div>
 
-
-
+                        @foreach($informasis as $informasi)
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <img src="{{ asset('storage/' . str_replace('public/', '', $informasi->foto)) }}" alt="Foto" class="img-fluid rounded" style="max-width: 300px;">
+                                <p class="mt-3">{{ $informasi->deskripsi }}</p>
+                            </div>
+                        </div>
+                        @endforeach
 
                     </div>
                 </div>

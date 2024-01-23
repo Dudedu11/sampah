@@ -98,7 +98,7 @@ class TransaksiNasabahController extends Controller
             $index++;
         }
 
-        $unit->saldo -+ $total;
+        $unit->saldo -= $total;
         $unit->update([
             'saldo' => $unit->saldo
         ]);
@@ -157,7 +157,33 @@ class TransaksiNasabahController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $transaksiNasabah = TransaksiNasabah::findOrFail($id);
+        
+        $detailTransaksiNasabah = DetailTransaksiNasabah::where("transaksi_id", $transaksiNasabah->id)->get();
+        foreach($detailTransaksiNasabah as $item){
+            $jenisSampahUnit = JenisSampahUnit::where('id', $item->jenis_sampah_unit_id)->first();
+            $jenisSampahUnit->stok -= $item->jumlah;
+            $jenisSampahUnit->update([
+                'stok' => $jenisSampahUnit->stok
+            ]);
+        }
+        DetailTransaksiNasabah::where("transaksi_id", $transaksiNasabah->id)->delete();
+
+        $unit = Unit::where('id', $transaksiNasabah->unit_id)->first();
+        $unit->saldo += $transaksiNasabah->total;
+        $unit->update([
+            'saldo' => $unit->saldo
+        ]);
+
+        $nasabah = Nasabah::where('id', $transaksiNasabah->nasabah_id)->first();
+        $nasabah->saldo -= $transaksiNasabah->total;
+        $nasabah->update([
+            'saldo' => $nasabah->saldo
+        ]);
+
+        $transaksiNasabah->delete();
+    
+        return $this->redirectRoute(transaksiNasabah: $transaksiNasabah);
     }
 
     /**

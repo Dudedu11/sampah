@@ -25,9 +25,9 @@
                             @foreach ($details as $detail)
                             <tr>
                                 <td>{{ $detail->jenisSampahUnit->nama }}</td>
-                                <td>Rp. {{ number_format($detail->jenisSampahUnit->harga_beli) }}</td>
+                                <td>Rp. {{ number_format($detail->jenisSampahUnit->harga_jual) }}</td>
                                 <td>{{ $detail->jumlah }}</td>
-                                <td>Rp. {{ number_format($detail->jenisSampahUnit->harga_beli * $detail->jumlah) }}</td>
+                                <td>Rp. {{ number_format($detail->jenisSampahUnit->harga_jual * $detail->jumlah) }}</td>
                             </tr>
                             @endforeach
                         </tbody>

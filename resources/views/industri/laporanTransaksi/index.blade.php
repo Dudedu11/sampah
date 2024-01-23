@@ -19,9 +19,10 @@
                                 <div class="form-group">
                                     <label>Mulai Tanggal</label>
                                     <input autocomplete="off" type="date" value="<?php
-use App\Models\Industri;
-use App\Models\Transaksiindustri;
-                                                                                    
+
+                                                                                    use App\Models\Industri;
+                                                                                    use App\Models\Transaksiindustri;
+
 
                                                                                     if (isset($_GET['tanggal_dari'])) {
                                                                                         echo $_GET['tanggal_dari'];
@@ -66,18 +67,18 @@ use App\Models\Transaksiindustri;
                         $user = session('user');
                         $industri = Industri::where('user_id', $user)->first();
 
-                            $transaksiIndustris = TransaksiIndustri::where('industri_id', $industri->id)
-                                ->where('tanggal', '>=', $tgl_dari)
-                                ->where('tanggal', '<=', $tgl_sampai)
-                                ->orderBy('tanggal', 'asc')
-                                ->get();
+                        $transaksiIndustris = TransaksiIndustri::where('industri_id', $industri->id)
+                            ->where('tanggal', '>=', $tgl_dari)
+                            ->where('tanggal', '<=', $tgl_sampai)
+                            ->orderBy('tanggal', 'asc')
+                            ->get();
                     ?>
 
                         <form action="{{ route('laporanTransaksiIndustri.store') }}" method="post">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $users->id }}">
                             <input type="hidden" name="tgl_dari" value="{{ $tgl_dari }}">
-                            <input type="hidden" name="tgl_sampai" value="{{ $tgl_sampai }}">   
-                            <input type="hidden" name="industri" value="{{ $industri->id }}">
+                            <input type="hidden" name="tgl_sampai" value="{{ $tgl_sampai }}">
                             <button type="submit" class="btn btn-sm btn-primary btn-block">
                                 <i class="align-middle" data-feather="download"></i> Download Laporan
                             </button>

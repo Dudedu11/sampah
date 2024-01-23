@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nasabah;
+use App\Models\TransaksiNasabah;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class LaporanTransaksiNasabahController extends Controller
 {
@@ -43,7 +46,47 @@ class LaporanTransaksiNasabahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->nasabah == 'semua') {
+            $transaksiNasabahs = TransaksiNasabah::where('unit_id', $request->id)
+                ->where('tanggal', '>=', $request->tgl_dari)
+                ->where('tanggal', '<=', $request->tgl_sampai)
+                ->orderBy('tanggal', 'asc')
+                ->get();
+        } else {
+            $transaksiNasabahs = TransaksiNasabah::where('unit_id', $request->id)
+                ->where('nasabah_id', $request->nasabah)
+                ->where('tanggal', '>=', $request->tgl_dari)
+                ->where('tanggal', '<=', $request->tgl_sampai)
+                ->orderBy('tanggal', 'asc')
+                ->get();
+        }
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // Header
+        $sheet->setCellValue('A1', 'Tanggal');
+        $sheet->setCellValue('B1', 'Bank Sampah Unit');
+        $sheet->setCellValue('C1', 'Nasabah');
+        $sheet->setCellValue('D1', 'Total');
+
+        // Data
+        $row = 2;
+        foreach ($transaksiNasabahs as $transaksi) {
+            $sheet->setCellValue('A' . $row, $transaksi->tanggal);
+            $sheet->setCellValue('B' . $row, $transaksi->unit->nama);
+            $sheet->setCellValue('C' . $row, $transaksi->nasabah->nama);
+            $sheet->setCellValue('D' . $row, $transaksi->total);
+            $row++;
+        }
+
+        // Save the spreadsheet
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'transaksi_nasabah_export.xlsx';
+        $writer->save($filename);
+
+        // Download the file
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 
     /**

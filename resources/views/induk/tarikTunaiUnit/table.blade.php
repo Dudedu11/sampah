@@ -5,7 +5,6 @@
             <th style="text-align:center;">Tanggal</th>
             <th style="text-align:center;">Bank Sampah Unit</th>
             <th style="text-align:center;">Jumlah</th>
-            <th style="text-align:center;">Aksi</th>
         </tr>
     </thead>
     <tbody>
@@ -15,11 +14,6 @@
             <td>{{ $tarikTunai->tanggal }}</td>
             <td>{{ $tarikTunai->unit->nama }}</td>
             <td>Rp. {{ number_format($tarikTunai->total) }}</td>
-            <td style="text-align:center;">
-                <a href="{{ route('tarikTunaiUnit.edit', $tarikTunai->id)}}">
-                    <i class="align-middle" data-feather="eye"></i>
-                </a>
-            </td>
         </tr>
         @endforeach
     </tbody>

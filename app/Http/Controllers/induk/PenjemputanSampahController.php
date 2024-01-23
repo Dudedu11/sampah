@@ -57,11 +57,13 @@ class PenjemputanSampahController extends Controller
 
         if ($request->aksi == "tolak") {
             $penjemputan->update([
-                'status' => false
+                'status' => false,
+                'tanggal' => date('Y-m-d')
             ]);
         } else {
             $penjemputan->update([
-                'status' => true
+                'status' => true,
+                'tanggal' => date('Y-m-d')
             ]);
 
             $unit = Unit::where('id', $penjemputan->unit_id)->first();

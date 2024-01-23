@@ -14,10 +14,6 @@
                 <div class="card-body">
                     <form action="{{ route('penjemputanSampahUnit.store') }}" method="POST" id="pembelianForm">
                         @csrf
-                        <div class="mb-3">
-                            <label for="tanggal" class="form-label">Tanggal</label>
-                            <input type="date" class="form-control" name="tanggal" id="tanggal" required>
-                        </div>
                         <div id="dynamicFields">
                             <div class="row">
                                 <div class="col">

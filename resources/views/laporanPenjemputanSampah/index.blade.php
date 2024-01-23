@@ -70,6 +70,7 @@ use App\Models\Unit;
                             $penjemputans = PenjemputanSampahUnit::where('unit_id', $unit->id)
                                 ->where('tanggal', '>=', $tgl_dari)
                                 ->where('tanggal', '<=', $tgl_sampai)
+                                ->where('status', true)
                                 ->orderBy('tanggal', 'asc')
                                 ->get();
                         } else {
@@ -87,6 +88,7 @@ use App\Models\Unit;
 
                         <form action="{{ route('laporanPenjemputanSampah.store') }}" method="post">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $users->id}}">
                             <input type="hidden" name="tgl_dari" value="{{ $tgl_dari }}">
                             <input type="hidden" name="tgl_sampai" value="{{ $tgl_sampai }}">
                             <button type="submit" class="btn btn-sm btn-primary btn-block">
