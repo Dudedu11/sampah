@@ -35,84 +35,19 @@
 						</div>
 						@endif
 						@if(session('role') == 1)
-						<div class="row">
-							<div class="col-6">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col mt-0">
-												<h5 class="card-title">
-													Jumlah Nasabah
-												</h5>
-											</div>
-											<div class="col-auto">
-												<div class="stat text-primary">
-													<i class="align-middle" data-feather="user"></i>
-												</div>
-											</div>
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col mt-0">
+										<h5 class="card-title">Total Sampah Terkumpul</h5>
+									</div>
+									<div class="col-auto">
+										<div class="stat text-primary">
+											<i class="align-middle" data-feather="dollar-sign"></i>
 										</div>
-										<h1 class="mt-1 mb-3"> {{ $nasabah }}</h1>
 									</div>
 								</div>
-							</div>
-							<div class="col-6">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col mt-0">
-												<h5 class="card-title">
-													Jumlah Bank Sampah Unit
-												</h5>
-											</div>
-											<div class="col-auto">
-												<div class="stat text-primary">
-													<i class="align-middle" data-feather="user"></i>
-												</div>
-											</div>
-										</div>
-										<h1 class="mt-1 mb-3"> {{ $unit }}</h1>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-6">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col mt-0">
-												<h5 class="card-title">
-													Jumlah Bank Sampah Induk
-												</h5>
-											</div>
-											<div class="col-auto">
-												<div class="stat text-primary">
-													<i class="align-middle" data-feather="user"></i>
-												</div>
-											</div>
-										</div>
-										<h1 class="mt-1 mb-3"> {{ $induk }}</h1>
-									</div>
-								</div>
-							</div>
-							<div class="col-6">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col mt-0">
-												<h5 class="card-title">
-													Jumlah Industri
-												</h5>
-											</div>
-											<div class="col-auto">
-												<div class="stat text-primary">
-													<i class="align-middle" data-feather="user"></i>
-												</div>
-											</div>
-										</div>
-										<h1 class="mt-1 mb-3">{{ $industri }}</h1>
-									</div>
-								</div>
+								<h1 class="mt-1 mb-3">{{ $totalTransaksi }} Kg</h1>
 							</div>
 						</div>
 						@else
@@ -166,6 +101,87 @@
 			</div>
 		</div>
 	</div>
+	@if(session('role') == 1)
+				<div class="row">
+					<div class="col-3">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col mt-0">
+										<h5 class="card-title">
+											Jumlah Nasabah
+										</h5>
+									</div>
+									<div class="col-auto">
+										<div class="stat text-primary">
+											<i class="align-middle" data-feather="user"></i>
+										</div>
+									</div>
+								</div>
+								<h1 class="mt-1 mb-3"> {{ $nasabah }}</h1>
+							</div>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col mt-0">
+										<h5 class="card-title">
+											Jumlah Bank Sampah Unit
+										</h5>
+									</div>
+									<div class="col-auto">
+										<div class="stat text-primary">
+											<i class="align-middle" data-feather="user"></i>
+										</div>
+									</div>
+								</div>
+								<h1 class="mt-1 mb-3"> {{ $unit }}</h1>
+							</div>
+						</div>
+					</div>
+	
+					<div class="col-3">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col mt-0">
+										<h5 class="card-title">
+											Jumlah Bank Sampah Induk
+										</h5>
+									</div>
+									<div class="col-auto">
+										<div class="stat text-primary">
+											<i class="align-middle" data-feather="user"></i>
+										</div>
+									</div>
+								</div>
+								<h1 class="mt-1 mb-3"> {{ $induk }}</h1>
+							</div>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col mt-0">
+										<h5 class="card-title">
+											Jumlah Industri
+										</h5>
+									</div>
+									<div class="col-auto">
+										<div class="stat text-primary">
+											<i class="align-middle" data-feather="user"></i>
+										</div>
+									</div>
+								</div>
+								<h1 class="mt-1 mb-3">{{ $industri }}</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				@endif
 
 	@if(session('role') != 4 && session('role') != 1)
 	<div class="row">

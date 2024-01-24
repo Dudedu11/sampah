@@ -16,8 +16,13 @@ class AuthController extends Controller
 
     public function option()
     {
+        return view('auth.option');
+    }
+
+    public function edukasi()
+    {
         $informasi = Informasi::all();
-        return view('auth.option',[
+        return view('auth.informasi',[
             'informasis' => $informasi
         ]);
     }

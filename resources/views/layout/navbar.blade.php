@@ -6,7 +6,7 @@
 
     <div class="navbar-collapse collapse">
       <span style="margin-left: 10px;">
-        Sistem Pengelolaan Sampah Jabar
+        Sistem Informasi FBJ
       </span>
       <ul class="navbar-nav navbar-align">
         <li class="nav-item dropdown">

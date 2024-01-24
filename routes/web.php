@@ -19,6 +19,7 @@ use App\Http\Controllers\induk\SampahTreatmentController;
 use App\Http\Controllers\induk\TarikTunaiUnitController;
 use App\Http\Controllers\induk\TransaksiIndustriController;
 use App\Http\Controllers\industri\IndukController;
+use App\Http\Controllers\industri\SampahIndustriController;
 use App\Http\Controllers\JenisSampahIndukController;
 use App\Http\Controllers\KategoriSampah;
 use App\Http\Controllers\NasabahController;
@@ -51,6 +52,7 @@ use App\Http\Controllers\TransaksiNasabahController;
 
 Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::get('option', [AuthController::class, 'option'])->name('option');
+Route::get('edukasi', [AuthController::class, 'edukasi'])->name('edukasi');
 Route::post('loginAction', [AuthController::class, 'loginAction'])->name('loginAction');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('signUpInduk', SignUpIndukController::class);
@@ -93,6 +95,7 @@ Route::resource('laporanTransaksiIndustri', LaporanTransaksiIndustriController::
 
 //industri
 Route::resource('induk', IndukController::class);
+Route::resource('sampahIndustri', SampahIndustriController::class);
 
 //fbj
 Route::resource('kelolaAkun', KelolaAkunController::class);

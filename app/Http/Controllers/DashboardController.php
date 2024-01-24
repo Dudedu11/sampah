@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailTransaksiNasabah;
 use App\Models\Induk;
 use App\Models\Industri;
 use App\Models\Nasabah;
@@ -26,6 +27,7 @@ class DashboardController extends Controller
             $transaksiIndustri = new TransaksiIndustri();
             $transaksiNasabah = new TransaksiNasabah();
             $penjemputanSampahUnit = new PenjemputanSampahUnit();
+            $totalTransaksi = DetailTransaksiNasabah::sum('jumlah');;
             $saldo = 0;
             $nasabah = Nasabah::count();
             $unit = Unit::whereHas('user', function ($query) {
@@ -72,7 +74,8 @@ class DashboardController extends Controller
                 'industri' => $industri,
                 'transaksiNasabah' => $totalTransaksiNasabah,
                 'transaksiUnit' => $totalTransaksiUnit,
-                'transaksiInduk' => $totalTransaksiInduk
+                'transaksiInduk' => $totalTransaksiInduk,
+                'totalTransaksi' => $totalTransaksi
             ]);
         } elseif (session('role') == 2) {
             $transaksiModel = new PenguranganSampahUnit();

@@ -28,29 +28,20 @@
                     <div class="d-table-cell align-middle">
 
                         <div class="text-center mt-4">
-                            <h1 class="h2">Forum Bank Sampah Jabar</h1>
+                            <h1 class="h2">Informasi Bank Jabar</h1>
                             <p class="lead">
 
                             </p>
                         </div>
 
+                        @foreach($informasis as $informasi)
                         <div class="card">
-                            <div class="card-body">
-                                <div class="row" style=" padding-bottom: 10px;">
-                                    <a href="{{ route('signUpUnit.index') }}" class="btn btn-primary btn-block" style="text-align: center;">Register Bank Sampah Unit</a>
-                                </div>
-                                <div class="row" style=" padding-bottom: 10px;">
-                                    <a href="{{ route('signUpInduk.index') }}" class="btn btn-primary btn-block" style="text-align: center;">Register Bank Sampah Induk</a>
-                                </div>
-                                <div class="row" style=" padding-bottom: 10px;">
-                                    <a href="{{ route('signUpIndustri.index') }}" class="btn btn-primary btn-block" style="text-align: center;">Register Industri</a>
-                                </div>
-                                <div class="row" style=" padding-bottom: 10px;">
-                                    <a href="{{ route('edukasi') }}" class="btn btn-primary btn-block" style="text-align: center;">Informasi</a>
-                                </div>
+                            <div class="card-body text-center">
+                                <img src="{{ asset('storage/' . str_replace('public/', '', $informasi->foto)) }}" alt="Foto" class="img-fluid rounded" style="max-width: 300px;">
+                                <p class="mt-3">{{ $informasi->deskripsi }}</p>
                             </div>
                         </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div>
