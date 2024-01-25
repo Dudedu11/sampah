@@ -104,6 +104,9 @@ class InformasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $informasi = Informasi::findOrFail($id);
+        $informasi->delete();
+
+        return redirect()->back();
     }
 }
