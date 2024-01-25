@@ -13,6 +13,7 @@
             <th style="text-align:center;">Alamat</th>
             <th style="text-align:center;">No Telepon</th>
             <th style="text-align:center;">No Rekening</th>
+            <th style="text-align:center;">Bank</th>
             <th style="text-align:center;">Saldo</th>
             <th style="text-align:center;">Aksi</th>
         </tr>
@@ -26,6 +27,7 @@
             <td>{{ $nasabah->alamat }}</td>
             <td>{{ $nasabah->no_telepon }}</td>
             <td>{{ $nasabah->no_rekening }}</td>
+            <td>{{ $nasabah->nama_bank }}</td>
             <td>Rp. {{ number_format($nasabah->saldo) }}</td>
             <td style="text-align:center;">
                 <a href="{{ route('nasabah.edit', $nasabah->id) }}" role="button">

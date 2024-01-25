@@ -36,6 +36,10 @@
                             <input type="text" class="form-control" id="noRekening" name="noRekening" value="{{$nasabah->no_rekening}}" required>
                         </div>
                         <div class="mb-3">
+                            <label for="nama" class="form-label">Nama Bank</label>
+                            <input type="text" class="form-control" id="namaBank" name="namaBank" value="{{$nasabah->nama_bank}}" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="nama" class="form-label">Saldo</label>
                             <input type="number" class="form-control" id="saldo" name="saldo" value="{{$nasabah->saldo}}" required>
                         </div>

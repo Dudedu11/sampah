@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('alamat')->nullable();
             $table->string('no_telepon')->nullable();
             $table->string('no_rekening')->nullable();
+            $table->string('nama_bank')->nullable();
             $table->decimal('saldo', 10,0)->default(0);
             $table->timestamps();
         });

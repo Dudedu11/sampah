@@ -20,6 +20,7 @@ class Nasabah extends Model
         'alamat',
         'no_telepon',
         'no_rekening',
+        'nama_bank',
         'saldo',
     ];
 

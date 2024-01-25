@@ -11,7 +11,7 @@
         <tr>
             <td>{{ $index + 1 }}</td>
             <td style="text-align:center;">
-                <img src="{{ asset('storage/' . str_replace('public/', '', $informasi->foto)) }}" alt="Foto" style="max-width: 100px; max-height: 100px;">
+                <img src="{{ asset('storage/foto/' . $informasi->foto) }}" alt="Foto" style="max-width: 100px; max-height: 100px;">
             </td>
             <td style="text-align:center;">{{ $informasi->deskripsi }}</td>
         </tr>

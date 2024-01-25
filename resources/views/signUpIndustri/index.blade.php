@@ -14,7 +14,7 @@
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-up.html" />
 
-    <title>Sign Up | AdminKit Demo</title>
+    <title>Sign Up</title>
 
     <link href="css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
                         <div class="text-center mt-4">
                             <h1 class="h2">Forum Bank Sampah Jabar</h1>
                             <p class="lead">
-                                Pendaftaran Akun Bank Sampah Industri
+                                Pendaftaran Akun Industri
                             </p>
                         </div>
 

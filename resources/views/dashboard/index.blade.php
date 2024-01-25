@@ -39,11 +39,11 @@
 							<div class="card-body">
 								<div class="row">
 									<div class="col mt-0">
-										<h5 class="card-title">Total Sampah Terkumpul</h5>
+										<h5 class="card-title">Total Pengurangan Sampah</h5>
 									</div>
 									<div class="col-auto">
 										<div class="stat text-primary">
-											<i class="align-middle" data-feather="dollar-sign"></i>
+											<i class="align-middle" data-feather="trash"></i>
 										</div>
 									</div>
 								</div>
@@ -102,86 +102,316 @@
 		</div>
 	</div>
 	@if(session('role') == 1)
-				<div class="row">
-					<div class="col-3">
-						<div class="card">
-							<div class="card-body">
-								<div class="row">
-									<div class="col mt-0">
-										<h5 class="card-title">
-											Jumlah Nasabah
-										</h5>
-									</div>
-									<div class="col-auto">
-										<div class="stat text-primary">
-											<i class="align-middle" data-feather="user"></i>
-										</div>
-									</div>
-								</div>
-								<h1 class="mt-1 mb-3"> {{ $nasabah }}</h1>
+	<div class="row">
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah Januari
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
 							</div>
 						</div>
 					</div>
-					<div class="col-3">
-						<div class="card">
-							<div class="card-body">
-								<div class="row">
-									<div class="col mt-0">
-										<h5 class="card-title">
-											Jumlah Bank Sampah Unit
-										</h5>
-									</div>
-									<div class="col-auto">
-										<div class="stat text-primary">
-											<i class="align-middle" data-feather="user"></i>
-										</div>
-									</div>
-								</div>
-								<h1 class="mt-1 mb-3"> {{ $unit }}</h1>
-							</div>
-						</div>
-					</div>
-	
-					<div class="col-3">
-						<div class="card">
-							<div class="card-body">
-								<div class="row">
-									<div class="col mt-0">
-										<h5 class="card-title">
-											Jumlah Bank Sampah Induk
-										</h5>
-									</div>
-									<div class="col-auto">
-										<div class="stat text-primary">
-											<i class="align-middle" data-feather="user"></i>
-										</div>
-									</div>
-								</div>
-								<h1 class="mt-1 mb-3"> {{ $induk }}</h1>
-							</div>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card">
-							<div class="card-body">
-								<div class="row">
-									<div class="col mt-0">
-										<h5 class="card-title">
-											Jumlah Industri
-										</h5>
-									</div>
-									<div class="col-auto">
-										<div class="stat text-primary">
-											<i class="align-middle" data-feather="user"></i>
-										</div>
-									</div>
-								</div>
-								<h1 class="mt-1 mb-3">{{ $industri }}</h1>
-							</div>
-						</div>
-					</div>
+					<h1 class="mt-1 mb-3"> {{ $jan }} Kg</h1>
 				</div>
-				@endif
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah Februari
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $feb }} Kg</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah Maret
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $mar }} Kg</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah April
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $apr }} Kg</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah Mei
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $mei }} Kg</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah Juni
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $jun }} Kg</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah Juli
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $jul }} Kg</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah Agustus
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $agu }} Kg</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah September
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $sep }} Kg</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah Oktober
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $okt }} Kg</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah November
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $nov }} Kg</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Pengurangan Sampah Desember
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="trash"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $des }} Kg</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Jumlah Nasabah
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="user"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $nasabah }}</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Jumlah Bank Sampah Unit
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="user"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $unit }}</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Jumlah Bank Sampah Induk
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="user"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3"> {{ $induk }}</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col mt-0">
+							<h5 class="card-title">
+								Jumlah Industri
+							</h5>
+						</div>
+						<div class="col-auto">
+							<div class="stat text-primary">
+								<i class="align-middle" data-feather="user"></i>
+							</div>
+						</div>
+					</div>
+					<h1 class="mt-1 mb-3">{{ $industri }}</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	@endif
 
 	@if(session('role') != 4 && session('role') != 1)
 	<div class="row">

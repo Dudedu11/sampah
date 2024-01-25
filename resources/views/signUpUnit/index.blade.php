@@ -66,7 +66,7 @@
                                         <div class="mb-3">
                                             <label class="form-label">Bank Sampah Induk</label>
                                             <select class="form-control" name="indukId" id="indukId">
-                                                <option value="">Non Induk</option>
+                                                <option value="">Non Induk / Induk Tidak Ditemukan</option>
                                                 @foreach ($induks as $induk)
                                                 <option value="{{ $induk->id }}">
                                                     {{ $induk->nama }}

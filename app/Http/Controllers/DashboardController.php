@@ -27,7 +27,44 @@ class DashboardController extends Controller
             $transaksiIndustri = new TransaksiIndustri();
             $transaksiNasabah = new TransaksiNasabah();
             $penjemputanSampahUnit = new PenjemputanSampahUnit();
-            $totalTransaksi = DetailTransaksiNasabah::sum('jumlah');;
+            $totalTransaksi = DetailTransaksiNasabah::sum('jumlah');
+            $taun = date('Y');
+            $jan = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 1)
+            ->sum('jumlah');
+            $feb = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 2)
+            ->sum('jumlah');
+            $mar = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 3)
+            ->sum('jumlah');
+            $apr = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 4)
+            ->sum('jumlah');
+            $mei = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 5)
+            ->sum('jumlah');
+            $jun = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 6)
+            ->sum('jumlah');
+            $jul = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 7)
+            ->sum('jumlah');
+            $agu = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 8)
+            ->sum('jumlah');
+            $sep = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 9)
+            ->sum('jumlah');
+            $okt = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 10)
+            ->sum('jumlah');
+            $nov = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 11)
+            ->sum('jumlah');
+            $des = DetailTransaksiNasabah::whereYear('created_at', $taun)
+            ->whereMonth('created_at', 12)
+            ->sum('jumlah');
             $saldo = 0;
             $nasabah = Nasabah::count();
             $unit = Unit::whereHas('user', function ($query) {
@@ -75,7 +112,19 @@ class DashboardController extends Controller
                 'transaksiNasabah' => $totalTransaksiNasabah,
                 'transaksiUnit' => $totalTransaksiUnit,
                 'transaksiInduk' => $totalTransaksiInduk,
-                'totalTransaksi' => $totalTransaksi
+                'totalTransaksi' => $totalTransaksi,
+                'jan' => $jan,
+                'feb' => $feb,
+                'mar' => $mar,
+                'apr' => $apr,
+                'mei' => $mei,
+                'jun' => $jun,
+                'jul' => $jul,
+                'agu' => $agu,
+                'sep' => $sep,
+                'okt' => $okt,
+                'nov' => $nov,
+                'des' => $des
             ]);
         } elseif (session('role') == 2) {
             $transaksiModel = new PenguranganSampahUnit();

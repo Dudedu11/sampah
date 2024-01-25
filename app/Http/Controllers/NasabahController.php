@@ -49,7 +49,8 @@ class NasabahController extends Controller
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'no_telepon' => $request->noTelepon,
-            'no_rekening' => $request->noRekening
+            'no_rekening' => $request->noRekening,
+            'nama_bank' => $request->namaBank
         ]);
 
         return $this->redirectRoute(nasabah: $nasabah);
@@ -97,7 +98,8 @@ class NasabahController extends Controller
             'alamat' => $request->alamat,
             'no_telepon' => $request->noTelepon,
             'no_rekening' => $request->noRekening,
-            'saldo' => $request->saldo
+            'saldo' => $request->saldo,
+            'nama_bank' => $request->namaBank
         ]);
 
         return $this->redirectRoute(nasabah: $nasabah);

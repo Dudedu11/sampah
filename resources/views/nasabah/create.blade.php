@@ -34,6 +34,10 @@
                             <label for="nama" class="form-label">No Rekening</label>
                             <input type="text" class="form-control" id="noRekening" name="noRekening" placeholder="Masukkan No Rekening" required>
                         </div>
+                        <div class="mb-3">
+                            <label for="nama" class="form-label">Nama Bank</label>
+                            <input type="text" class="form-control" id="namaBank" name="namaBank" placeholder="Masukkan Nama Bank" required>
+                        </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
 

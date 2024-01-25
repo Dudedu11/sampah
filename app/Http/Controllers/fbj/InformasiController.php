@@ -44,19 +44,23 @@ class InformasiController extends Controller
             'deskripsi' => 'required',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif',
         ]);
-
+    
         // Simpan file di storage atau folder yang diinginkan
         $fotoPath = $request->file('foto')->store('public/foto');
-
-        // Simpan data ke dalam database
+    
+        // Dapatkan hanya nama file dari path
+        $namaFile = basename($fotoPath);
+    
+        // Simpan data ke dalam database dengan nama file saja
         $informasi = Informasi::create([
             'deskripsi' => $request->input('deskripsi'),
-            'foto' => $fotoPath,
+            'foto' => $namaFile,
         ]);
-
+    
         // Redirect atau melakukan hal lain setelah penyimpanan
         return redirect()->route('informasi.index')->with('success', 'Jenis Sampah berhasil ditambahkan.');
     }
+    
 
     /**
      * Display the specified resource.
