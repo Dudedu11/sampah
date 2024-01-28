@@ -34,7 +34,9 @@ class JenisSampahIndukController extends Controller
      */
     public function create()
     {
-        $kategoriSampah = KategoriSampah::all();
+        $user = session('user');
+        $induk = Induk::where('user_id', $user)->first();
+        $kategoriSampah = KategoriSampah::where('induk_id', $induk->id);
         return view('jenisSampahInduk.create', [
             'kategoriSampahs' => $kategoriSampah
         ]);

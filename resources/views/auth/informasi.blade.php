@@ -37,7 +37,7 @@
                         @foreach($informasis as $informasi)
                         <div class="card">
                             <div class="card-body text-center">
-                                <img src="{{ asset('storage/foto/' . $informasi->foto) }}" alt="Foto" class="img-fluid rounded" style="max-width: 300px;">
+                                <!-- <img src="{{ asset('storage/foto/' . $informasi->foto) }}" alt="Foto" class="img-fluid rounded" style="max-width: 300px;"> -->
                                 <p class="mt-3">{{ $informasi->deskripsi }}</p>
                             </div>
                         </div>

@@ -42,19 +42,19 @@ class InformasiController extends Controller
         // Validasi request
         $request->validate([
             'deskripsi' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif',
+            // 'foto' => 'required|image|mimes:jpeg,png,jpg,gif',
         ]);
     
         // Simpan file di storage atau folder yang diinginkan
-        $fotoPath = $request->file('foto')->store('public/foto');
+        // $fotoPath = $request->file('foto')->store('public/foto');
     
         // Dapatkan hanya nama file dari path
-        $namaFile = basename($fotoPath);
+        // $namaFile = basename($fotoPath);
     
         // Simpan data ke dalam database dengan nama file saja
         $informasi = Informasi::create([
             'deskripsi' => $request->input('deskripsi'),
-            'foto' => $namaFile,
+            // 'foto' => $namaFile,
         ]);
     
         // Redirect atau melakukan hal lain setelah penyimpanan

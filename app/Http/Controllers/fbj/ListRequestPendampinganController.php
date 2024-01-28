@@ -17,8 +17,10 @@ class ListRequestPendampinganController extends Controller
     public function index()
     {
         $request = RequestPendampingan::where('status', null)->get();
+        $allRequest = RequestPendampingan::where('status', '!=', null)->get();
         return view('fbj.requestPendampingan.index', [
-            'requests' => $request
+            'requests' => $request,
+            'all' => $allRequest
         ]);
     }
 
@@ -115,7 +117,7 @@ class ListRequestPendampinganController extends Controller
      */
     private function redirectRoute(
         RequestPendampingan $pendampingan,
-        String $route = 'kelolaAkun.index',
+        String $route = 'listRequestPendampingan.index',
         String $successMsg = 'Berhasil',
         String $errorMsg = 'Terjadi Kesalahan'
     ): RedirectResponse {
