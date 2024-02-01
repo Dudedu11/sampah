@@ -65,7 +65,7 @@ class PenguranganSampahUnitController extends Controller
         $index = 0;
         foreach ($request->jenis_sampah_unit_id as $item) {
             $jenisSampah = JenisSampahUnit::where('id', $item)->first();
-            $total += $jenisSampah->harga_beli * $request->jumlah[$index];
+            $total += $jenisSampah->harga_jual * $request->jumlah[$index];
             $index++;
         }
 
@@ -88,7 +88,7 @@ class PenguranganSampahUnitController extends Controller
                 'pengurangan_id' => $pengurangan->id,
                 'jenis_sampah_unit_id' => $jenisSampah->id,
                 'jumlah' => $request->jumlah[$index],
-                'total' => $jenisSampah->harga_beli * $request->jumlah[$index]
+                'total' => $jenisSampah->harga_jual * $request->jumlah[$index]
             ]);
 
             $jenisSampah->stok -= $request->jumlah[$index];

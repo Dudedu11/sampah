@@ -630,7 +630,7 @@
 			data: {
 				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 				datasets: [{
-					label: "Pengeluaran (Rp )",
+					label: "Pengeluaran",
 					fill: true,
 					backgroundColor: gradient,
 					borderColor: window.theme.primary,
@@ -689,7 +689,7 @@
 			data: {
 				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 				datasets: [{
-					label: "Pengeluaran (Rp )",
+					label: "Pengeluaran",
 					fill: true,
 					backgroundColor: gradient,
 					borderColor: window.theme.primary,
@@ -748,7 +748,7 @@
 			data: {
 				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 				datasets: [{
-					label: "Pengeluaran (Rp )",
+					label: "Pengeluaran",
 					fill: true,
 					backgroundColor: gradient,
 					borderColor: window.theme.primary,
